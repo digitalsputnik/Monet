@@ -1,4 +1,6 @@
-# Monet - How to use
+# Monet
+
+## Installing
 
 1. **First point to the folder containing unreal_artnet and artnet_client from unreal** *(Edit -> Project Settings -> Python -> Additional Paths -> "Folder path here")*
 2. **You have to restart unreal engine to apply the changes**
@@ -11,8 +13,6 @@
 If this is not done the port will be held and the UnrealEditor.exe process has to be closed from the task manager
 To start artnet again use unreal_artnet.start(unreal)**
 
-
-# Unreal Python Demos
 
 ## DSDMpy Demos
 
@@ -68,6 +68,7 @@ light_color.set_editor_property('r', 255); light_color.set_editor_property('g', 
 ```
 
 ###### PS! Light Color also has an alpha value which is currently not used in this demo
+
 
 ## Apollo Controller Demos
 
