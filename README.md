@@ -37,7 +37,7 @@ for actor in actors:
 cube.set_actor_location(unreal.Vector(0,0,0), False, False)
 ```
 
-## Change Light color
+**Change Light color**
 1. Create a directional light in your level and name it "Light"
 2. Send these lines one by one to create the light object in python
 
