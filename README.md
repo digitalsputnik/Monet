@@ -68,4 +68,4 @@ light_color = light_component.get_editor_property('light_color')
 light_color.set_editor_property('r', 255); light_color.set_editor_property('g', 255); light_color.set_editor_property('b', 255)
 ```
 
-###### PS! Unreal also has an alpha value which is currently not used in this demo
+###### PS! Light Color also has an alpha value which is currently not used in this demo
