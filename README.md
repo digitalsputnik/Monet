@@ -1,7 +1,4 @@
-# Monet
-
-
-## How to use
+# Monet - How to use
 
 1. **First point to the folder containing unreal_artnet and artnet_client from unreal** *(Edit -> Project Settings -> Python -> Additional Paths -> "Folder path here")*
 2. **You have to restart unreal engine to apply the changes**
