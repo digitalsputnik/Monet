@@ -15,7 +15,9 @@ If this is not done the port will be held and the UnrealEditor.exe process has t
 To start artnet again use unreal_artnet.start(unreal)**
 
 
-## Unreal Python Demos
+# Unreal Python Demos
+
+## DSDMpy Demos
 
 **Moving actor named Cube**
 1. Create a cube in your level and name it "Cube"
@@ -69,6 +71,35 @@ light_color.set_editor_property('r', 255); light_color.set_editor_property('g', 
 ```
 
 ###### PS! Light Color also has an alpha value which is currently not used in this demo
+
+## Apollo Controller Demos
+
+**Setup Artnet Demo Script**
+1. Create a directional light in your level and name it "Light"
+2. Run this custom script in the controller
+
+```python
+send_repl("actors = unreal.EditorLevelLibrary.get_all_level_actors()","Desktop")
+send_repl("for actor in actors:\n    if actor.get_actor_label() == 'Light':\n        light = actor","Desktop")
+send_repl("light_component = light.get_editor_property('directional_light_component')","Desktop")
+send_repl("light_color = light_component.get_editor_property('light_color')","Desktop")
+```
+
+**Create Unreal Dummy lamp in controller**
+1. Setup Unreal lamp using Setup Artnet Demo Script above
+2. Run this custom script in the controller
+
+```python
+create_device("UnrealLamp")
+
+UnrealLamp.properties["color"] = [255,255,255,255,255]
+
+SendUnreal = function(color_in, tag)
+    send_repl("light_color.set_editor_property('r', " + color_in[0] + "); light_color.set_editor_property('g', " + color_in[1] + "); light_color.set_editor_property('b', " + color_in[2] + ")", tag)
+end function
+
+UnrealLamp.send_property_logic = "SendUnreal(__value,""Desktop"")"
+```
 
 ## Known issues
 - Currently the response to a request is offset by one meaning the response to a command from DSDMpy will be of the previous command sent
