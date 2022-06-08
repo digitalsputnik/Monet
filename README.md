@@ -71,4 +71,4 @@ light_color.set_editor_property('r', 255); light_color.set_editor_property('g', 
 ###### PS! Light Color also has an alpha value which is currently not used in this demo
 
 ## Known issues
-- Currently the response to a request is offset by one meaning the response to a command from dsdmpy will be of the previous command sent
+- Currently the response to a request is offset by one meaning the response to a command from DSDMpy will be of the previous command sent
