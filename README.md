@@ -14,9 +14,7 @@ If this is not done the port will be held and the UnrealEditor.exe process has t
 To start artnet again use unreal_artnet.start(unreal)**
 
 
-## DSDMpy Demos
-
-
+## DSDMpy Demos (Python)
 
 **Moving actor named Cube**
 1. Create a cube in your level and name it "Cube"
@@ -37,8 +35,6 @@ for actor in actors:
 # Set cube position to (0,0,0)
 cube.set_actor_location(unreal.Vector(0,0,0), False, False)
 ```
-
-
 
 **Change Light color**
 1. Create a directional light in your level and name it "Light"
@@ -74,11 +70,7 @@ light_color.set_editor_property('r', 255); light_color.set_editor_property('g', 
 ###### PS! Light Color also has an alpha value which is currently not used in this demo
 
 
-
-
-## Apollo Controller Demos
-
-
+## Apollo Controller Demos (Miniscript)
 
 **Setup Artnet Demo Script**
 1. Create a directional light in your level and name it "Light"
@@ -95,8 +87,6 @@ send_repl("light_component = light.get_editor_property('directional_light_compon
 // Get the light color of the light component
 send_repl("light_color = light_component.get_editor_property('light_color')","Desktop")
 ```
-
-
 
 **Create Unreal Dummy lamp in controller**
 1. Setup Unreal lamp using Setup Artnet Demo Script above
@@ -118,8 +108,6 @@ end function
 // Set the previously made function as a callback to when the lamps color has changed
 UnrealLamp.send_property_logic = "SendUnreal(__value,""Desktop"")"
 ```
-
-
 
 **Create a lamp in Unreal for each lamp found in controller**
 1. Run this custom script in the controller
@@ -148,8 +136,6 @@ for device in device_list
     send_repl(device.name + "_color = " + device.name + "_component.get_editor_property('light_color')","Desktop")
 end for
 ```
-
-
 
 **Setup Unreal For Two Lamps**
 1. Create two Directional Lights in unreal
@@ -180,8 +166,6 @@ exec(light_two_name + ".properties[""color""] = [255,255,255,255,255]")
 exec(light_one_name + ".send_property_logic = ""SendWithUnreal(__value,""""" + light_one_name + """"")"" ")
 exec(light_two_name + ".send_property_logic = ""SendWithUnreal(__value,""""" + light_two_name + """"")"" ")
 ```
-
-
 
 ## Known issues
 - Currently the response to a request is offset by one meaning the response to a command from DSDMpy will be of the previous command sent
