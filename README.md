@@ -76,10 +76,14 @@ light_color.set_editor_property('r', 255); light_color.set_editor_property('g', 
 1. Create a directional light in your level and name it "Light"
 2. Run this custom script in the controller
 
-```miniscript
+```python
+// Get a list of all actors in unreal
 send_repl("actors = unreal.EditorLevelLibrary.get_all_level_actors()","Desktop")
+// Find an actor named Light and set a variable light as the actor
 send_repl("for actor in actors:\n    if actor.get_actor_label() == 'Light':\n        light = actor","Desktop")
+// Get the light component of the light actor
 send_repl("light_component = light.get_editor_property('directional_light_component')","Desktop")
+// Get the light color of the light component
 send_repl("light_color = light_component.get_editor_property('light_color')","Desktop")
 ```
 
@@ -88,30 +92,41 @@ send_repl("light_color = light_component.get_editor_property('light_color')","De
 2. Run this custom script in the controller
 
 ```python
+// Create a new dummy lamp in the controller
 create_device("UnrealLamp")
 
+// Add a color property to the dummy lamp to see it on the colorwheel
 UnrealLamp.properties["color"] = [255,255,255,255,255]
 
+// Create a function that sends out the color as an Unreal Python command
 SendUnreal = function(color_in, tag)
     send_repl("light_color.set_editor_property('r', " + color_in[0] + "); light_color.set_editor_property('g', " + color_in[1] + "); light_color.set_editor_property('b', " + color_in[2] + ")", tag)
 end function
 
+// Set the previously made function as a callback to when the lamps color has changed
 UnrealLamp.send_property_logic = "SendUnreal(__value,""Desktop"")"
 ```
 
 **Create a lamp in Unreal for each lamp found in controller**
 1. Run this custom script in the controller
 ```python
+// Create a function that sends out the color to both an apollo lamp and an unreal lamp
 SendWithUnreal = function(color_in, device)
     send_repl(device.name + "_color.set_editor_property('r', " + color_in[0] + "); " + device.name + "_color.set_editor_property('g', " + color_in[1] + "); " + device.name + "_color.set_editor_property('b', " + color_in[2] + ")", "Desktop")
     send_repl("color.set_value(" + color_in + ")", device.name)
 end function
 
+// Loop though all devices in the controller
 for device in device_list
+    /// Set the previously made function as a callback to when the lamps color has changed
     device.send_property_logic = "SendWithUnreal(__value,__self)"
+    // Generate a new DirectionalLight actor in unreal
     send_repl(device.name + " = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.DirectionalLight, unreal.Vector(0,0,0))", "Desktop")
+    // Set the DirectionalLight actors name the lamp name
     send_repl(device.name + ".set_actor_label('" + device.name + "')", "Desktop")
+    // Get the DirectionalLightComponent of the actor to a variable
     send_repl(device.name + "_component = " + device.name + ".get_editor_property('directional_light_component')","Desktop")
+    // Get the color object of the DirectionalLightComponent to a variable
     send_repl(device.name + "_color = " + device.name + "_component.get_editor_property('light_color')","Desktop")
 end for
 ```
