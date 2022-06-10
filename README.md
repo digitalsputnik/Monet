@@ -77,6 +77,7 @@ light_color.set_editor_property('r', 255); light_color.set_editor_property('g', 
 2. Run this custom script in the controller
 
 ```python
+// Comments in miniscript are two backslashes, mind the syntax highlighting
 // Get a list of all actors in unreal
 send_repl("actors = unreal.EditorLevelLibrary.get_all_level_actors()","Desktop")
 // Find an actor named Light and set a variable light as the actor
@@ -92,6 +93,7 @@ send_repl("light_color = light_component.get_editor_property('light_color')","De
 2. Run this custom script in the controller without the # signs
 
 ```python
+// Comments in miniscript are two backslashes, mind the syntax highlighting
 // Create a new dummy lamp in the controller
 create_device("UnrealLamp")
 
@@ -110,6 +112,7 @@ UnrealLamp.send_property_logic = "SendUnreal(__value,""Desktop"")"
 **Create a lamp in Unreal for each lamp found in controller**
 1. Run this custom script in the controller
 ```python
+// Comments in miniscript are two backslashes, mind the syntax highlighting
 // Create a function that sends out the color to both an apollo lamp and an unreal lamp
 SendWithUnreal = function(color_in, device)
     // Logic that sends the color to unreal as a python command
