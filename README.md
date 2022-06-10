@@ -99,5 +99,21 @@ end function
 UnrealLamp.send_property_logic = "SendUnreal(__value,""Desktop"")"
 ```
 
+**Create a lamp in Unreal for each lamp found in controller**
+1. Run this custom script in the controller
+```python
+SendWithUnreal = function(color_in, device)
+    send_repl(device.name + "_color.set_editor_property('r', " + color_in[0] + "); " + device.name + "_color.set_editor_property('g', " + color_in[1] + "); " + device.name + "_color.set_editor_property('b', " + color_in[2] + ")", "Desktop")
+    send_repl("color.set_value(" + color_in + ")", device.name)
+end function
+
+for device in device_list
+    device.send_property_logic = "SendWithUnreal(__value,__self)"
+    send_repl(device.name + " = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.DirectionalLight, unreal.Vector(0,0,0))")
+    send_repl(device.name + ".set_actor_label('" + device.name + "')")
+    send_repl(device.name + "_component = " + device.name + ".get_editor_property('directional_light_component')","Desktop")
+    send_repl(device.name + "_color = " + device.name + "_component.get_editor_property('light_color')","Desktop")
+end for
+```
 ## Known issues
 - Currently the response to a request is offset by one meaning the response to a command from DSDMpy will be of the previous command sent
