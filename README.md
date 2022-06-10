@@ -76,7 +76,7 @@ light_color.set_editor_property('r', 255); light_color.set_editor_property('g', 
 1. Create a directional light in your level and name it "Light"
 2. Run this custom script in the controller
 
-```python
+```miniscript
 send_repl("actors = unreal.EditorLevelLibrary.get_all_level_actors()","Desktop")
 send_repl("for actor in actors:\n    if actor.get_actor_label() == 'Light':\n        light = actor","Desktop")
 send_repl("light_component = light.get_editor_property('directional_light_component')","Desktop")
