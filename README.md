@@ -138,7 +138,7 @@ end for
 ```
 
 **Setup Unreal For Two Lamps**
-1. Create two Directional Light in unreal
+1. Create two Directional Lights in unreal
 2. Run this script in the apollo controller, but change light_one_name and light_two_name to the names of the DirectionalLights in your level
 
 ```python
