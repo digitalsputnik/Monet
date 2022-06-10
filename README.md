@@ -111,6 +111,7 @@ UnrealLamp.send_property_logic = "SendUnreal(__value,""Desktop"")"
 
 **Create a lamp in Unreal for each lamp found in controller**
 1. Run this custom script in the controller
+
 ```python
 // Comments in miniscript are two backslashes, mind the syntax highlighting
 // Create a function that sends out the color to both an apollo lamp and an unreal lamp
@@ -135,5 +136,36 @@ for device in device_list
     send_repl(device.name + "_color = " + device.name + "_component.get_editor_property('light_color')","Desktop")
 end for
 ```
+
+**Setup Unreal For Two Lamps**
+1. Create two Directional Light in unreal
+2. Run this script in the apollo controller, but change light_one_name and light_two_name to the names of the DirectionalLights in your level
+
+```python
+light_one_name = "Light"
+light_two_name = "Spotlight"
+
+send_repl("actors = unreal.EditorLevelLibrary.get_all_level_actors()","Desktop")
+send_repl("for actor in actors:\n    if actor.get_actor_label() == '" + light_one_name + "':\n        " + light_one_name + " = actor","Desktop")
+send_repl("for actor in actors:\n    if actor.get_actor_label() == '" + light_two_name + "':\n        " + light_two_name + " = actor","Desktop")
+send_repl(light_one_name + "_component = " + light_one_name + ".get_editor_property('directional_light_component')","Desktop")
+send_repl(light_two_name + "_component = " + light_two_name + ".get_editor_property('directional_light_component')","Desktop")
+send_repl(light_one_name + "_color = " + light_one_name + "_component.get_editor_property('light_color')","Desktop")
+send_repl(light_two_name + "_color = " + light_two_name + "_component.get_editor_property('light_color')","Desktop")
+
+SendWithUnreal = function(color_in, tag)
+    send_repl(tag + "_color.set_editor_property('r', " + color_in[0] + "); " + tag + "_color.set_editor_property('g', " + color_in[1] + "); " + tag + "_color.set_editor_property('b', " + color_in[2] + ")", "Desktop")
+end function
+
+create_device(light_one_name)
+create_device(light_two_name)
+
+exec(light_one_name + ".properties[""color""] = [255,255,255,255,255]")
+exec(light_two_name + ".properties[""color""] = [255,255,255,255,255]")
+
+exec(light_one_name + ".send_property_logic = ""SendWithUnreal(__value,""""" + light_one_name + """"")"" ")
+exec(light_two_name + ".send_property_logic = ""SendWithUnreal(__value,""""" + light_two_name + """"")"" ")
+```
+
 ## Known issues
 - Currently the response to a request is offset by one meaning the response to a command from DSDMpy will be of the previous command sent
