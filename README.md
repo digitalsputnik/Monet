@@ -13,6 +13,7 @@
 If this is not done the port will be held and the UnrealEditor.exe process has to be closed from the task manager
 To start artnet again use unreal_artnet.start(unreal)**
 
+**The default tag for Unreal Artnet is "Desktop"
 
 ## DSDMpy Demos (Python)
 
