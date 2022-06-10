@@ -109,8 +109,8 @@ end function
 
 for device in device_list
     device.send_property_logic = "SendWithUnreal(__value,__self)"
-    send_repl(device.name + " = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.DirectionalLight, unreal.Vector(0,0,0))")
-    send_repl(device.name + ".set_actor_label('" + device.name + "')")
+    send_repl(device.name + " = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.DirectionalLight, unreal.Vector(0,0,0))", "Desktop")
+    send_repl(device.name + ".set_actor_label('" + device.name + "')", "Desktop")
     send_repl(device.name + "_component = " + device.name + ".get_editor_property('directional_light_component')","Desktop")
     send_repl(device.name + "_color = " + device.name + "_component.get_editor_property('light_color')","Desktop")
 end for
