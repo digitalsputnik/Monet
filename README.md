@@ -16,8 +16,8 @@ To start artnet again use unreal_artnet.start(unreal)**
 **The default tag for Unreal Artnet is "Desktop"**
 
 
-
-
+## How To
+You can find demos for both python and miniscript in the repository wiki
 
 
 ## Known issues
