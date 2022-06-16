@@ -16,9 +16,11 @@ class ArtnetClient(threading.Thread):
         
     def run(self):
         self._is_running = True
+        
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.socket.bind((self.ip,self.port))
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.socket.bind((self.ip,self.port))
         while self._is_running:
             try:
                 data, address = self.socket.recvfrom(1024)
