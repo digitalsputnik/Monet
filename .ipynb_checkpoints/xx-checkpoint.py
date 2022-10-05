@@ -98,7 +98,7 @@ class step:
         hkey_2 = keyboard.add_hotkey('m', self._reset_marker)
         hkey_3 = keyboard.add_hotkey('q', self._reset_quit)
         
-        prev = [0,0]
+        prev = False
         top_right_corner = [0,0]
         
         while True:
@@ -106,11 +106,16 @@ class step:
             # if [alt] is pressed / mark corner
             if self._flags[0]==True:
                 self._flags[0]=False
-                print(" -> pos: "+str(pos.x)+","+str(pos.y))
-                #get_color(pos.x,pos.y)
-                self._img = gui.screenshot(region=(prev[0],prev[1],pos.x-prev[0],pos.y-prev[1]))
-                top_right_corner = prev
-                prev=[pos.x,pos.y]
+                # ignore 1st click for image viewer
+                if prev==False:
+                    prev = [0,0]
+                else:
+                    print("-> gui.screenshot(region=("+str(prev[0])+","+str(prev[1])+","+str(pos.x)+","+str(pos.y)+"))")
+                    #get_color(pos.x,pos.y)
+                    self._img = gui.screenshot(region=(prev[0],prev[1],pos.x-prev[0],pos.y-prev[1]))
+                    top_right_corner = prev
+                    display.display_png(self._img)  
+                prev=[pos.x,pos.y]   
             
             # if [w] is pressed / view image  
             if self._flags[1]==True:
