@@ -3,7 +3,7 @@ import pyautogui as gui
 import keyboard
 import pyperclip
 import os
-from PIL import Image
+from PIL import Image, ImageDraw
 from PIL.PngImagePlugin import PngInfo
 from IPython import display
 
@@ -116,6 +116,7 @@ class step:
                     display.display_png(self._img)  
                 prev=[pos.x,pos.y]   
             
+            # ToDo:
             # if [r] is pressed / recapture the image from previous location 
             if self._flags[1]==True:
                 self._flags[1]=False
@@ -124,8 +125,14 @@ class step:
             # if [m] is pressed / add marker 
             if self._flags[2]==True:
                 self._flags[2]=False
-                self._markers.append([pos.x-top_right_corner[0],pos.y-top_right_corner[1],"click"])         
+                preview = gui.screenshot(region=(pos.x-25,pos.y-25,50,50))
+                preview_draw = ImageDraw.Draw(preview)
+                preview_draw.line((25,12,25,38),fill='red')
+                preview_draw.line((12,25,38,25),fill='red')
+                # ToDo: Create a cross on the preview
                 print("-> _markers.append("+str(pos.x-top_right_corner[0])+","+str(pos.y-top_right_corner[1])+",'click',''))")
+                display.display_png(preview)
+                self._markers.append([pos.x-top_right_corner[0],pos.y-top_right_corner[1],"click"])         
                            
             # if [q] is pressed / end capture   
             if self._flags[3]==True:
