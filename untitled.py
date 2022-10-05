@@ -155,5 +155,117 @@ else:
     time.sleep(0.2)
     gui.click(abs_loc3[0], abs_loc3[1])
     
+    
+###
+#pre script
+
+#script
+loc=[[0,0,'python']]
+keywords = []
+if self.found_loc==None:
+    print("-> Image Not Found")
+else:
+    print("-> Image Found @: "+str(self.found_loc))
+    for location in loc:
+        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]
+        if location[2] == 'click':
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+        if location[2] == 'type':
+            try:
+                text = location[3]
+            except:
+                text = ""
+                
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            time.sleep(self.ui_delay)
+            gui.typewrite(text)
+            time.sleep(self.ui_delay)
+            gui.press('enter')
+            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+            print("    -> "+text)
+        if location[2] == 'python':
+            #
+            # ADD CUSTOM LOGIC HERE
+            #
+            print("->No logic entered for the current step")
+            
+            
+#pre script
+
+#script
+loc=[[0,0,'python']]
+keywords = []
+if self.found_loc==None:
+    print("-> Image Not Found")
+else:
+    print("-> Image Found @: "+str(self.found_loc))
+    for location in loc:
+        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]
+        if location[2] == 'click':
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+        if location[2] == 'type':
+            try:
+                text = location[3]
+            except:
+                text = ""
+                
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            time.sleep(self.ui_delay)
+            gui.typewrite(text)
+            time.sleep(self.ui_delay)
+            gui.press('enter')
+            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+            print("    -> "+text)
+        if location[2] == 'python':
+            #
+            # ADD CUSTOM LOGIC HERE
+            #
+            print("    -> No logic entered for the current step")
+            
+            
+    
 
     
+    
+    
+#pre script
+
+#script
+loc=[[105,106,'click'],[354,98,'click'],[621,102,'click']]
+keywords = []
+if self.found_loc==None:
+    print("-> Image Not Found")
+else:
+    print("-> Image Found @: "+str(self.found_loc))
+    for location in loc:
+        print(location)
+        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]
+        if location[2] == 'click':
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+        if location[2] == 'type':
+            try:
+                text = location[3]
+            except:
+                text = ""
+                
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            time.sleep(self.ui_delay)
+            gui.typewrite(text)
+            time.sleep(self.ui_delay)
+            gui.press('enter')
+            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+            print("    -> "+text)
+        if location[2] == 'python':
+            #
+            # ADD CUSTOM LOGIC HERE
+            #
+            print("    -> No logic entered for the current step")

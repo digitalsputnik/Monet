@@ -39,43 +39,43 @@ def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9):
             out = gui.locateOnScreen(imgsrc, confidence=match_q)
             if out!=None:
                 return out
-        #pics/0_3_addressBar.png
         except Exception as e:
             print(e)
         
         time.sleep(wait)
-    # if function times out no location is found    
+    # if function times out, no location is found    
     return None
 
 class step:
     """
-    # setup
-    # per record
-    # cleanup
+    process->[step]->action
+    Step is a single unit of logic to find partial image on screen 
+    and preform n number of actions realtive to the found location
+     
     """
     # ToDo make flags a list
     def __init__(self, img=None, scrollable=False, pre = None, script= None, timeout=10):
-        #ToDo: init with load file
-        self._img = img
-        self._scroll = scrollable
+        # ToDo: init with load file
         # test if image path is valid, if not raise ValueError and do not construct an object
+        self._img = img              # PIL png data
+        self._scroll = scrollable
         self._pre_script = pre
-        self.found_loc = None #1st image found location
-        if script==None:
-            # Default script parameter if step instance is just created
-            self._script = 'loc=[[0,0]]\r\nif self.found_loc==None:\r\n    print("  Image Not Found")\r\nelse:\r\n    print("  Image Found @: "+str(self.found_loc))'
+        self.ui_delay = 0.2          # time for ui to react
+        self.found_loc = None        # 1st image found location
+        if script==None:             # Default script parameter if step instance is just created
+            self._script = 'loc=[[0,0,\'python\']]\r\nkeywords = []\r\nif self.found_loc==None:\r\n    print("-> Image Not Found")\r\nelse:\r\n    print("-> Image Found @: "+str(self.found_loc))\r\n    for location in loc:\r\n        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]\r\n        if location[2] == \'click\':\r\n            time.sleep(self.ui_delay)\r\n            gui.click(abs_location[0], abs_location[1])\r\n            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")\r\n        if location[2] == \'type\':\r\n            try:\r\n                text = location[3]\r\n            except:\r\n                text = ""\r\n                \r\n            time.sleep(self.ui_delay)\r\n            gui.click(abs_location[0], abs_location[1])\r\n            time.sleep(self.ui_delay)\r\n            gui.typewrite(text)\r\n            time.sleep(self.ui_delay)\r\n            gui.press(\'enter\')\r\n            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")\r\n            print("    -> "+text)\r\n        if location[2] == \'python\':\r\n            #\r\n            # ADD CUSTOM LOGIC HERE\r\n            #\r\n            print("    -> No logic entered for the current step")'
         else:
             self._script = script
-        self._flags = [False,False,False,False] #mark,show,mark,quit
+        self._flags = [False,False,False,False] #mark,recapture,marker,quit
         self.timeout = timeout
-        self.markers = []
+        self._markers = []
         self.params = {} # Default parameters defined in PNG
         self.match_q = 0.8
             
     def _reset_mark(self):
         self._flags[0] = True
         
-    def _reset_show(self):
+    def _reset_recapture(self):
         self._flags[1] = True
         
     def _reset_marker(self):
@@ -87,14 +87,13 @@ class step:
     def capture(self):
         print("Capture images and (input) positions for step construction")
         print("[alt]  - mark image corner (top left to right bottom)")
-        # ToDo: add recapture image option
-        print("[w]    - show captured image")
+        print("[r]    - recapture image with previous location, ie no mouse highlight")
         print("[m]    - add click or input marker, print variable as string")
         # ToDo: update marker with multiselect
         print("[q]    - stop capture")
         
         hkey_0 = keyboard.add_hotkey('alt', self._reset_mark)
-        hkey_1 = keyboard.add_hotkey('w', self._reset_show)
+        hkey_1 = keyboard.add_hotkey('r', self._reset_recapture)
         hkey_2 = keyboard.add_hotkey('m', self._reset_marker)
         hkey_3 = keyboard.add_hotkey('q', self._reset_quit)
         
@@ -117,7 +116,7 @@ class step:
                     display.display_png(self._img)  
                 prev=[pos.x,pos.y]   
             
-            # if [w] is pressed / view image  
+            # if [r] is pressed / recapture the image from previous location 
             if self._flags[1]==True:
                 self._flags[1]=False
                 self._img.show()
@@ -125,26 +124,48 @@ class step:
             # if [m] is pressed / add marker 
             if self._flags[2]==True:
                 self._flags[2]=False
-                self.markers.append(gui.Point(pos.x-top_right_corner[0],pos.y-top_right_corner[1]))
-                markers_str = "loc=["
-                for marker in self.markers:
-                    markers_str=markers_str+"["+str(marker.x)+","+str(marker.y)+"],"
-                    
-                self.markers_str = markers_str[:-1]+"]"
-                # update the script markers
-                cutpoint = self._script.find('\r')
-                self._script = self.markers_str+self._script[cutpoint:]
-                print(self.markers_str)
+                self._markers.append([pos.x-top_right_corner[0],pos.y-top_right_corner[1],"click"])         
+                print("-> _markers.append("+str(pos.x-top_right_corner[0])+","+str(pos.y-top_right_corner[1])+",'click',''))")
                            
             # if [q] is pressed / end capture   
             if self._flags[3]==True:
                 self._flags[3]=False
                 keyboard.remove_all_hotkeys()
+                self._markers2string()
                 self.copy()
                 return
             
             # Be gentele to your CPU ;)
             time.sleep(0.1)
+    
+    def update_marker(self, marker_nr, mode='click', payload=None):
+        try:
+            self._markers[marker_nr][3] = payload
+        except:
+            self._markers[marker_nr].append(payload)
+            
+        try:
+            self._markers[marker_nr][2] = mode
+            self._markers[marker_nr][3] = payload
+            self._markers2string()
+        except Exception as e:
+            print(e)
+    
+    def _markers2string(self):
+        # Convert markers to string
+        markers_str = "loc=["
+        for marker in self._markers:
+            try:
+                markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'"+str(marker[2])+"','"+str(marker[3])+"'],"
+            except:
+                # ToDo: Think how this is B.A.D.
+                markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'click',''],"
+
+        self._markers_str = markers_str[:-1]+"]"
+        # Update _script
+        # Makes an assumption that 1st line is ALWAYS location
+        cutpoint = self._script.find('\r')
+        self._script = self._markers_str+self._script[cutpoint:]
     
     def run(self):
         # run pre script
