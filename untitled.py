@@ -196,7 +196,7 @@ else:
 #pre script
 
 #script
-loc=[[0,0,'python']]
+loc=[[0,0,'python','']]
 keywords = []
 if self.found_loc==None:
     print("-> Image Not Found")
@@ -213,7 +213,9 @@ else:
                 text = location[3]
             except:
                 text = ""
-                
+            
+            time.sleep(self.ui_delay)
+            gui.hotkey('ctrl','a')
             time.sleep(self.ui_delay)
             gui.click(abs_location[0], abs_location[1])
             time.sleep(self.ui_delay)
@@ -255,7 +257,50 @@ else:
                 text = location[3]
             except:
                 text = ""
-                
+            
+            time.sleep(self.ui_delay)
+            gui.hotkey('ctrl','a')
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            time.sleep(self.ui_delay)
+            gui.typewrite(text)
+            time.sleep(self.ui_delay)
+            gui.press('enter')
+            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+            print("    -> "+text)
+        if location[2] == 'python':
+            #
+            # ADD CUSTOM LOGIC HERE
+            #
+            print("    -> No logic entered for the current step")
+            
+            
+#pre script
+
+#script
+loc=[[69,22,'click','']]
+
+#script
+loc=[]
+keywords = []
+if self.found_loc==None:
+    print("-> Image Not Found")
+else:
+    print("-> Image Found @: "+str(self.found_loc))
+    for location in loc:
+        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]
+        if location[2] == 'click':
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+        if location[2] == 'type':
+            try:
+                text = location[3]
+            except:
+                text = ""
+            
+            time.sleep(self.ui_delay)
+            gui.hotkey('ctrl','a')
             time.sleep(self.ui_delay)
             gui.click(abs_location[0], abs_location[1])
             time.sleep(self.ui_delay)

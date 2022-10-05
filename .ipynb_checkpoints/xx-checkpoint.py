@@ -63,12 +63,13 @@ class step:
         self.ui_delay = 0.2          # time for ui to react
         self.found_loc = None        # 1st image found location
         if script==None:             # Default script parameter if step instance is just created
-            self._script = 'loc=[[0,0,\'python\']]\r\nkeywords = []\r\nif self.found_loc==None:\r\n    print("-> Image Not Found")\r\nelse:\r\n    print("-> Image Found @: "+str(self.found_loc))\r\n    for location in loc:\r\n        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]\r\n        if location[2] == \'click\':\r\n            time.sleep(self.ui_delay)\r\n            gui.click(abs_location[0], abs_location[1])\r\n            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")\r\n        if location[2] == \'type\':\r\n            try:\r\n                text = location[3]\r\n            except:\r\n                text = ""\r\n                \r\n            time.sleep(self.ui_delay)\r\n            gui.click(abs_location[0], abs_location[1])\r\n            time.sleep(self.ui_delay)\r\n            gui.typewrite(text)\r\n            time.sleep(self.ui_delay)\r\n            gui.press(\'enter\')\r\n            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")\r\n            print("    -> "+text)\r\n        if location[2] == \'python\':\r\n            #\r\n            # ADD CUSTOM LOGIC HERE\r\n            #\r\n            print("    -> No logic entered for the current step")'
+            self._script = 'loc=[]\r\nkeywords = []\r\nif self.found_loc==None:\r\n    print("-> Image Not Found")\r\nelse:\r\n    print("-> Image Found @: "+str(self.found_loc))\r\n    for location in loc:\r\n        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]\r\n        if location[2] == \'click\':\r\n            time.sleep(self.ui_delay)\r\n            gui.click(abs_location[0], abs_location[1])\r\n            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")\r\n        if location[2] == \'type\':\r\n            try:\r\n                text = location[3]\r\n            except:\r\n                text = ""\r\n            \r\n            time.sleep(self.ui_delay)\r\n            gui.hotkey(\'ctrl\',\'a\')\r\n            time.sleep(self.ui_delay)\r\n            gui.click(abs_location[0], abs_location[1])\r\n            time.sleep(self.ui_delay)\r\n            gui.typewrite(text)\r\n            time.sleep(self.ui_delay)\r\n            gui.press(\'enter\')\r\n            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")\r\n            print("    -> "+text)\r\n        if location[2] == \'python\':\r\n            #\r\n            # ADD CUSTOM LOGIC HERE\r\n            #\r\n            print("    -> No logic entered for the current step")'
         else:
             self._script = script
         self._flags = [False,False,False,False] #mark,recapture,marker,quit
         self.timeout = timeout
         self._markers = []
+        # ToDo get rid of the params?
         self.params = {} # Default parameters defined in PNG
         self.match_q = 0.8
             
@@ -98,18 +99,20 @@ class step:
         hkey_3 = keyboard.add_hotkey('q', self._reset_quit)
         
         prev = False
+        last_screenshot = None
         top_right_corner = [0,0]
         
         while True:
-            pos = gui.position()
             # if [alt] is pressed / mark corner
             if self._flags[0]==True:
+                pos = gui.position()
                 self._flags[0]=False
                 # ignore 1st click for image viewer
                 if prev==False:
                     prev = [0,0]
                 else:
-                    print("-> gui.screenshot(region=("+str(prev[0])+","+str(prev[1])+","+str(pos.x)+","+str(pos.y)+"))")
+                    last_screenshot = "gui.screenshot(region=("+str(prev[0])+","+str(prev[1])+","+str(pos.x-prev[0])+","+str(pos.y-prev[1])+"))"
+                    print("-> "+last_screenshot)
                     #get_color(pos.x,pos.y)
                     self._img = gui.screenshot(region=(prev[0],prev[1],pos.x-prev[0],pos.y-prev[1]))
                     top_right_corner = prev
@@ -120,10 +123,13 @@ class step:
             # if [r] is pressed / recapture the image from previous location 
             if self._flags[1]==True:
                 self._flags[1]=False
-                self._img.show()
+                print("-> "+last_screenshot)
+                self._img = eval(last_screenshot)
+                display.display_png(self._img) 
             
             # if [m] is pressed / add marker 
             if self._flags[2]==True:
+                pos = gui.position()
                 self._flags[2]=False
                 preview = gui.screenshot(region=(pos.x-25,pos.y-25,50,50))
                 preview_draw = ImageDraw.Draw(preview)
@@ -159,16 +165,19 @@ class step:
             print(e)
     
     def _markers2string(self):
-        # Convert markers to string
-        markers_str = "loc=["
-        for marker in self._markers:
-            try:
-                markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'"+str(marker[2])+"','"+str(marker[3])+"'],"
-            except:
-                # ToDo: Think how this is B.A.D.
-                markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'click',''],"
+        if self._markers == []:
+            self._markers_str = "loc = []"
+        else:
+            # Convert markers to string
+            markers_str = "loc=["
+            for marker in self._markers:
+                try:
+                    markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'"+str(marker[2])+"','"+str(marker[3])+"'],"
+                except:
+                    # ToDo: Think how this is B.A.D.
+                    markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'click',''],"
 
-        self._markers_str = markers_str[:-1]+"]"
+            self._markers_str = markers_str[:-1]+"]"
         # Update _script
         # Makes an assumption that 1st line is ALWAYS location
         cutpoint = self._script.find('\r')
