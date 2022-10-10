@@ -1,3 +1,6 @@
+
+
+
 ##Step1
 #pre script
 myApp = gui.getWindowsWithTitle("Unreal")[0]
@@ -274,6 +277,13 @@ else:
             #
             print("    -> No logic entered for the current step")
             
+
+            
+            
+
+            
+            
+            
             
 #pre script
 
@@ -282,6 +292,110 @@ loc=[[69,22,'click','']]
 
 #script
 loc=[]
+keywords = []
+if self.found_loc==None:
+    print("-> Image Not Found")
+else:
+    print("-> Image Found @: "+str(self.found_loc))
+    for location in loc:
+        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]
+        if location[2] == 'click':
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+        if location[2] == 'type':
+            try:
+                text = location[3]
+            except:
+                text = ""
+            
+            time.sleep(self.ui_delay)
+            gui.hotkey('ctrl','a')
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            time.sleep(self.ui_delay)
+            gui.typewrite(text)
+            time.sleep(self.ui_delay)
+            gui.press('enter')
+            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+            print("    -> "+text)
+        if location[2] == 'python':
+            #
+            # ADD CUSTOM LOGIC HERE
+            #
+            print("    -> No logic entered for the current step")
+            
+            
+#pre script
+
+#script
+loc=[[67,34,'python','']]
+keywords = []
+if self.found_loc==None:
+    print("-> Image Not Found")
+else:
+    print("-> Image Found @: "+str(self.found_loc))
+    for location in loc:
+        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]
+        if location[2] == 'click':
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+        if location[2] == 'type':
+            try:
+                text = location[3]
+            except:
+                text = ""
+            
+            time.sleep(self.ui_delay)
+            gui.hotkey('ctrl','a')
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            time.sleep(self.ui_delay)
+            gui.typewrite(text)
+            time.sleep(self.ui_delay)
+            gui.press('enter')
+            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+            print("    -> "+text)
+        if location[2] == 'python':
+            print("    -> running python")
+            time.sleep(self.ui_delay)
+            gui.click(abs_location[0], abs_location[1])
+            print("    --> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+            time.sleep(self.ui_delay)
+            gui.typewrite('BP_EditorTicker')
+            print("    --> Typed: 'BP_EditorTicker'")
+            time.sleep(self.ui_delay)
+            gui.hotkey('enter')
+            time.sleep(self.ui_delay)
+            gui.hotkey('enter')
+            print("    --> Typed: [enter]+[enter]")
+
+            
+            
+#pre script
+
+#script
+loc=[[12,180,'click',''],[272,59,'click',''],[273,220,'click','']]
+if self.found_loc==None:
+    print("  Image Not Found")
+else:
+    found = [self.found_loc.left,self.found_loc.top]
+    abs_loc1 = [found[0]+loc[0][0], found[1]+loc[0][1]]
+    abs_loc2 = [found[0]+loc[1][0], found[1]+loc[1][1]]
+    abs_loc3 = [found[0]+loc[2][0], found[1]+loc[2][1]]
+    time.sleep(0.2)
+    gui.click(abs_loc1[0], abs_loc1[1])
+    time.sleep(0.2)
+    gui.click(abs_loc2[0], abs_loc2[1])
+    time.sleep(0.2)
+    gui.click(abs_loc3[0], abs_loc3[1])
+    
+    
+#pre script
+
+#script
+loc=[[12,180,'click',''],[272,59,'click',''],[273,220,'click','']]
 keywords = []
 if self.found_loc==None:
     print("-> Image Not Found")

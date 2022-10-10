@@ -7,14 +7,6 @@ from PIL import Image, ImageDraw
 from PIL.PngImagePlugin import PngInfo
 from IPython import display
 
-def test_param(step, name, default):
-    #Automatically add parameter to the step
-    try:
-        test = step.params[name]
-    except Exception as e:
-        print("    No param: "+name+" found intializing with value: "+str(default))
-        step.params[name]=default
-
 def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9):
     # return the co-ordinates of the found image or None
     # ToDo: bbox
@@ -48,30 +40,31 @@ def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9):
 
 class step:
     """
-    process->[step]->action
+    process->workflow->[step]->action
     Step is a single unit of logic to find partial image on screen 
     and preform n number of actions realtive to the found location
      
     """
-    # ToDo make flags a list
     def __init__(self, img=None, scrollable=False, pre = None, script= None, timeout=10):
-        # ToDo: init with load file
-        # test if image path is valid, if not raise ValueError and do not construct an object
-        self._img = img              # PIL png data
-        self._scroll = scrollable
-        self._pre_script = pre
+        self._scroll = scrollable    # will scroll down between all tries
+        self._pre_script = pre       # script to be ran before looking for the image
+        self._flags = [False,False,False,False] # Flags for capture keyboartd feedback [mark,recapture,marker,quit]
+        self._markers = []           # Action locations realtive to the image        
         self.ui_delay = 0.2          # time for ui to react
         self.found_loc = None        # 1st image found location
+        self.timeout = timeout       # How many time to try
+        self.match_q = 0.8           # Default search quality
+        self.break_flow = False      # If this true if there is an error the workflow will stop and not try next step
+        # main script
         if script==None:             # Default script parameter if step instance is just created
             self._script = 'loc=[]\r\nkeywords = []\r\nif self.found_loc==None:\r\n    print("-> Image Not Found")\r\nelse:\r\n    print("-> Image Found @: "+str(self.found_loc))\r\n    for location in loc:\r\n        abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]\r\n        if location[2] == \'click\':\r\n            time.sleep(self.ui_delay)\r\n            gui.click(abs_location[0], abs_location[1])\r\n            print("    -> Clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")\r\n        if location[2] == \'type\':\r\n            try:\r\n                text = location[3]\r\n            except:\r\n                text = ""\r\n            \r\n            time.sleep(self.ui_delay)\r\n            gui.hotkey(\'ctrl\',\'a\')\r\n            time.sleep(self.ui_delay)\r\n            gui.click(abs_location[0], abs_location[1])\r\n            time.sleep(self.ui_delay)\r\n            gui.typewrite(text)\r\n            time.sleep(self.ui_delay)\r\n            gui.press(\'enter\')\r\n            print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")\r\n            print("    -> "+text)\r\n        if location[2] == \'python\':\r\n            #\r\n            # ADD CUSTOM LOGIC HERE\r\n            #\r\n            print("    -> No logic entered for the current step")'
         else:
             self._script = script
-        self._flags = [False,False,False,False] #mark,recapture,marker,quit
-        self.timeout = timeout
-        self._markers = []
-        # ToDo get rid of the params?
-        self.params = {} # Default parameters defined in PNG
-        self.match_q = 0.8
+        # image loading
+        if type(img) == str:
+            self.loadPNG(img)
+        else:
+            self._img = img              # PIL png data
             
     def _reset_mark(self):
         self._flags[0] = True
@@ -135,7 +128,6 @@ class step:
                 preview_draw = ImageDraw.Draw(preview)
                 preview_draw.line((25,12,25,38),fill='red')
                 preview_draw.line((12,25,38,25),fill='red')
-                # ToDo: Create a cross on the preview
                 print("-> _markers.append("+str(pos.x-top_right_corner[0])+","+str(pos.y-top_right_corner[1])+",'click',''))")
                 display.display_png(preview)
                 self._markers.append([pos.x-top_right_corner[0],pos.y-top_right_corner[1],"click"])         
@@ -265,11 +257,14 @@ class step:
         self._img.show()
 
 class workflow:
+    """
+    process->[workflow]->step->action
+    workflow is a group of steps to achive one specific goal in the 
+    process (ie create a new document and name it properly)
+     
+    """
     # automation->workflow->step
     # workflow is a group of steps to achive one specific goal in the process (ie create a new document and name it properly)
-    #
-    # ToDo: Pickup Function
-    # ToDo: Save/Load - every step params should be saved
     # ToDo: TmpFolder - when script is ran, temp folder is generated and once finished if empty deleted
     # ToDo: Local Stored Parameters???
     def __init__(self):
@@ -291,12 +286,18 @@ class workflow:
         for png in pnglist:
             self.steps.append(step())
             self.steps[-1].loadPNG(png)
-
+    
+    def append(self, file=None):
+        if file:
+            self.steps.append([step(file),file])
+        else:
+            self.steps.append([step(),None])
+    
     def run(self):
         steps_total = len(self.steps)
         for index in range(steps_total):
             try:
-                self.steps[index].run()
+                self.steps[index][0].run()
                 self._current_step = index
             except Exception as e:
                 print(e)
