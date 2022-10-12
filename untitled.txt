@@ -1,0 +1,1105 @@
+Begin Map
+   Begin Level
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_7 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=Actor_4
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cylinder.Cylinder"'
+            StaticMeshImportVersion=1
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FB55E93DCBABE3F2C97CA0EEB3A654AA700000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000001000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=Material'"/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-396.472379,Y=218.577917,Z=-372.194912)
+            RelativeRotation=(Pitch=-0.142824,Yaw=-142.999784,Roll=0.606540)
+            RelativeScale3D=(X=0.402190,Y=0.402190,Z=1.888307)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Screenl"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_62 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-320.159336,Y=96.074743,Z=44.186718)
+            RelativeRotation=(Pitch=-0.053459,Yaw=-36.447301,Roll=-1.005347)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube22"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_71 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-266.324320,Y=58.193739,Z=44.151829)
+            RelativeRotation=(Pitch=-0.022452,Yaw=-34.681498,Roll=-1.006517)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube31"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_72 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-211.265332,Y=21.745190,Z=44.149795)
+            RelativeRotation=(Pitch=-0.006423,Yaw=-33.769308,Roll=-1.006747)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube32"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_73 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-156.002507,Y=-13.527988,Z=44.166977)
+            RelativeRotation=(Pitch=0.027793,Yaw=-31.822037,Roll=-1.006384)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube33"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_74 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-99.380127,Y=-46.810035,Z=44.226523)
+            RelativeRotation=(Pitch=0.057083,Yaw=-30.153754,Roll=-1.005148)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube34"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_75 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-41.357105,Y=-78.374883,Z=44.324811)
+            RelativeRotation=(Pitch=0.109807,Yaw=-27.142800,Roll=-1.000762)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube35"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_76 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=16.598943,Y=-106.168689,Z=44.477773)
+            RelativeRotation=(Pitch=0.130876,Yaw=-25.935154,Roll=-0.998225)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube36"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_77 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=72.543731,Y=-132.740931,Z=44.629198)
+            RelativeRotation=(Pitch=0.165101,Yaw=-23.966114,Roll=-0.993139)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube37"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_78 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-372.563101,Y=135.772359,Z=44.262105)
+            RelativeRotation=(Pitch=-0.080734,Yaw=-38.002910,Roll=-1.003525)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube38"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_79 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=131.503744,Y=-158.063329,Z=44.828130)
+            RelativeRotation=(Pitch=0.187082,Yaw=-22.695645,Roll=-0.989234)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube39"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_80 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=192.594975,Y=-182.445392,Z=45.061478)
+            RelativeRotation=(Pitch=0.216559,Yaw=-20.983428,Roll=-0.983202)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube40"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_81 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-423.841297,Y=176.879868,Z=44.369065)
+            RelativeRotation=(Pitch=-0.106536,Yaw=-39.477606,Roll=-1.001115)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube41"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_14 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-320.123540,Y=97.920779,Z=-53.963653)
+            RelativeRotation=(Pitch=-0.053459,Yaw=-36.447300,Roll=-1.005347)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube23"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_15 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-266.288523,Y=60.039776,Z=-53.998542)
+            RelativeRotation=(Pitch=-0.022452,Yaw=-34.681498,Roll=-1.006517)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube42"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_16 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-211.229535,Y=23.591226,Z=-54.000576)
+            RelativeRotation=(Pitch=-0.006423,Yaw=-33.769308,Roll=-1.006747)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube43"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_17 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-155.966710,Y=-11.681952,Z=-53.983394)
+            RelativeRotation=(Pitch=0.027793,Yaw=-31.822036,Roll=-1.006384)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube44"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_18 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-99.344331,Y=-44.963998,Z=-53.923848)
+            RelativeRotation=(Pitch=0.057083,Yaw=-30.153754,Roll=-1.005148)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube45"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_19 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-41.321308,Y=-76.528848,Z=-53.825560)
+            RelativeRotation=(Pitch=0.109807,Yaw=-27.142799,Roll=-1.000762)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube46"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_20 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=16.634739,Y=-104.322652,Z=-53.672598)
+            RelativeRotation=(Pitch=0.130876,Yaw=-25.935153,Roll=-0.998225)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube47"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_21 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=72.579527,Y=-130.894895,Z=-53.521172)
+            RelativeRotation=(Pitch=0.165101,Yaw=-23.966113,Roll=-0.993139)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube48"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_22 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-372.527304,Y=137.618396,Z=-53.888266)
+            RelativeRotation=(Pitch=-0.080734,Yaw=-38.002909,Roll=-1.003525)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube49"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_23 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=132.453288,Y=-156.623472,Z=-53.319359)
+            RelativeRotation=(Pitch=0.187082,Yaw=-22.695644,Roll=-0.989234)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube50"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_24 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=193.544519,Y=-181.005537,Z=-53.086011)
+            RelativeRotation=(Pitch=0.216559,Yaw=-20.983427,Roll=-0.983202)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube51"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_25 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-423.805461,Y=178.725911,Z=-53.781306)
+            RelativeRotation=(Pitch=-0.106536,Yaw=-39.477606,Roll=-1.001115)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube52"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_26 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-319.157633,Y=99.385442,Z=-153.802172)
+            RelativeRotation=(Pitch=-0.053459,Yaw=-36.447300,Roll=-1.005347)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube24"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_27 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-265.322617,Y=61.504439,Z=-153.837061)
+            RelativeRotation=(Pitch=-0.022452,Yaw=-34.681498,Roll=-1.006517)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube53"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_28 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-210.263629,Y=25.055889,Z=-153.839095)
+            RelativeRotation=(Pitch=-0.006423,Yaw=-33.769308,Roll=-1.006747)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube54"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_29 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-155.000804,Y=-10.217289,Z=-153.821913)
+            RelativeRotation=(Pitch=0.027793,Yaw=-31.822036,Roll=-1.006384)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube55"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_30 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-98.378424,Y=-43.499335,Z=-153.762367)
+            RelativeRotation=(Pitch=0.057083,Yaw=-30.153754,Roll=-1.005148)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube56"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_31 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-40.355402,Y=-75.064184,Z=-153.664079)
+            RelativeRotation=(Pitch=0.109807,Yaw=-27.142799,Roll=-1.000762)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube57"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_32 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=17.600646,Y=-102.857989,Z=-153.511117)
+            RelativeRotation=(Pitch=0.130876,Yaw=-25.935153,Roll=-0.998225)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube58"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_33 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=73.545434,Y=-129.430232,Z=-153.359692)
+            RelativeRotation=(Pitch=0.165101,Yaw=-23.966113,Roll=-0.993139)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube59"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_34 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-371.561398,Y=139.083059,Z=-153.726785)
+            RelativeRotation=(Pitch=-0.080734,Yaw=-38.002909,Roll=-1.003525)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube60"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_35 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=133.419194,Y=-155.158808,Z=-153.157878)
+            RelativeRotation=(Pitch=0.187082,Yaw=-22.695644,Roll=-0.989234)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube61"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_36 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=194.510427,Y=-179.540875,Z=-152.924530)
+            RelativeRotation=(Pitch=0.216559,Yaw=-20.983427,Roll=-0.983202)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube62"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_37 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-422.839556,Y=180.190574,Z=-153.619825)
+            RelativeRotation=(Pitch=-0.106536,Yaw=-39.477606,Roll=-1.001115)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube63"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_38 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-318.176242,Y=100.873593,Z=-255.241523)
+            RelativeRotation=(Pitch=-0.053459,Yaw=-36.447300,Roll=-1.005347)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube25"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_39 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-264.341226,Y=62.992589,Z=-255.276412)
+            RelativeRotation=(Pitch=-0.022452,Yaw=-34.681498,Roll=-1.006517)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube64"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_40 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-209.282238,Y=26.544040,Z=-255.278446)
+            RelativeRotation=(Pitch=-0.006423,Yaw=-33.769308,Roll=-1.006747)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube65"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_41 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-154.019413,Y=-8.729139,Z=-255.261264)
+            RelativeRotation=(Pitch=0.027793,Yaw=-31.822036,Roll=-1.006384)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube66"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_42 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-97.397034,Y=-42.011184,Z=-255.201718)
+            RelativeRotation=(Pitch=0.057083,Yaw=-30.153754,Roll=-1.005148)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube67"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_43 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-39.374011,Y=-73.576034,Z=-255.103430)
+            RelativeRotation=(Pitch=0.109807,Yaw=-27.142799,Roll=-1.000762)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube68"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_44 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=18.582036,Y=-101.369839,Z=-254.950468)
+            RelativeRotation=(Pitch=0.130876,Yaw=-25.935153,Roll=-0.998225)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube69"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_45 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=74.526825,Y=-127.942081,Z=-254.799043)
+            RelativeRotation=(Pitch=0.165101,Yaw=-23.966113,Roll=-0.993139)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube70"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_46 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-370.580007,Y=140.571209,Z=-255.166136)
+            RelativeRotation=(Pitch=-0.080734,Yaw=-38.002909,Roll=-1.003525)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube71"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_47 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=134.400585,Y=-153.670658,Z=-254.597229)
+            RelativeRotation=(Pitch=0.187082,Yaw=-22.695644,Roll=-0.989234)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube72"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_48 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=195.491818,Y=-178.052727,Z=-254.363881)
+            RelativeRotation=(Pitch=0.216559,Yaw=-20.983427,Roll=-0.983202)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube73"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_49 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-421.858165,Y=181.678726,Z=-255.059176)
+            RelativeRotation=(Pitch=-0.106536,Yaw=-39.477606,Roll=-1.001115)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube74"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_50 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-317.207042,Y=102.343251,Z=-355.420523)
+            RelativeRotation=(Pitch=-0.053459,Yaw=-36.447300,Roll=-1.005347)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube26"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_51 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-263.372025,Y=64.462247,Z=-355.455413)
+            RelativeRotation=(Pitch=-0.022452,Yaw=-34.681498,Roll=-1.006517)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube75"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_52 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-208.313037,Y=28.013698,Z=-355.457446)
+            RelativeRotation=(Pitch=-0.006423,Yaw=-33.769308,Roll=-1.006747)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube76"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_53 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-153.050212,Y=-7.259481,Z=-355.440264)
+            RelativeRotation=(Pitch=0.027793,Yaw=-31.822036,Roll=-1.006384)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube77"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_54 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-96.427833,Y=-40.541526,Z=-355.380719)
+            RelativeRotation=(Pitch=0.057083,Yaw=-30.153754,Roll=-1.005148)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube78"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_55 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-38.404810,Y=-72.106376,Z=-355.282430)
+            RelativeRotation=(Pitch=0.109807,Yaw=-27.142799,Roll=-1.000762)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube79"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_56 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=19.551237,Y=-99.900181,Z=-355.129468)
+            RelativeRotation=(Pitch=0.130876,Yaw=-25.935153,Roll=-0.998225)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube80"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_57 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=75.496026,Y=-126.472423,Z=-354.978043)
+            RelativeRotation=(Pitch=0.165101,Yaw=-23.966113,Roll=-0.993139)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube81"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_58 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-369.610806,Y=142.040867,Z=-355.345136)
+            RelativeRotation=(Pitch=-0.080734,Yaw=-38.002909,Roll=-1.003525)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube82"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_59 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=135.369786,Y=-152.201000,Z=-354.776229)
+            RelativeRotation=(Pitch=0.187082,Yaw=-22.695644,Roll=-0.989234)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube83"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_60 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=196.461020,Y=-176.583072,Z=-354.542882)
+            RelativeRotation=(Pitch=0.216559,Yaw=-20.983427,Roll=-0.983202)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube84"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_61 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor' ParentActor=StaticMeshActor_7
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Cube.Cube"'
+            bUseDefaultCollision=False
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_20000000000000080000000000000803F000000000000803F0000803FFE19E1B969AE3BD1A90CD721CC7A19BC00000000010000000100000000000000010000000100000000000000000000000100000000000000400000000000000002000000000000000000F03F000000000000F03F000000000000F03F0000004000000000050000004E6F6E65000C00000030000000803F0000803F000000000000004100000000000034420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=MaterialInstanceConstant'"/Game/objects.objects"'
+            BodyInstance=(ObjectType=ECC_WorldDynamic,CollisionProfileName="BlockAllDynamic",MaxAngularVelocity=3599.999756)
+            RelativeLocation=(X=-420.888965,Y=183.148383,Z=-355.238176)
+            RelativeRotation=(Pitch=-0.106536,Yaw=-39.477606,Roll=-1.001115)
+            RelativeScale3D=(X=0.660156,Y=0.071178,Z=1.000182)
+            Mobility=Movable
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Cube85"
+      End Actor
+   End Level
+Begin Surface
+End Surface
+End Map

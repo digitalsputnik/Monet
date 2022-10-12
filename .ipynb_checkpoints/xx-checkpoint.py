@@ -8,9 +8,16 @@ from PIL.PngImagePlugin import PngInfo
 from IPython import display
 
 def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9):
+    """
+    returns found image cordinates from desktop
+    
+    
     # return the co-ordinates of the found image or None
     # ToDo: bbox
     # ToDo: nice break
+    # ToDo: move into step obejct?
+    
+    """
     
     for loop in range(tries):
         #if imgsrc is list all items in list will be tested
@@ -43,13 +50,27 @@ class step:
     process->workflow->[step]->action
     Step is a single unit of logic to find partial image on screen 
     and preform n number of actions realtive to the found location
-     
+    
+    ToDo: Add default delay on str2stp, remove default dealy for 
+          stp2str // make _add_delay, _remove_delay functions and 
+          impelemnt them in str2 functionality
+    ToDo: Add multiple image loading / writing
+          and payload loading / writing
+    ToDo: Move screencapture to:
+          https://python-mss.readthedocs.io/examples.html
+          also image detection (cv2)
+    ToDo: Create jupyter compatible GUI to edit the markers
+          ie. temp.py
+          
+    ****  https://github.com/gereleth/jupyter-bbox-widget
+    
     """
     def __init__(self, img=None, scrollable=False, pre = None, script= None, timeout=10):
         self._scroll = scrollable    # will scroll down between all tries
         self._pre_script = pre       # script to be ran before looking for the image
         self._flags = [False,False,False,False] # Flags for capture keyboartd feedback [mark,recapture,marker,quit]
-        self._markers = []           # Action locations realtive to the image        
+        self._markers = []           # Action locations realtive to the image  
+        
         self.ui_delay = 0.2          # time for ui to react
         self.found_loc = None        # 1st image found location
         self.timeout = timeout       # How many time to try
@@ -83,7 +104,6 @@ class step:
         print("[alt]  - mark image corner (top left to right bottom)")
         print("[r]    - recapture image with previous location, ie no mouse highlight")
         print("[m]    - add click or input marker, print variable as string")
-        # ToDo: update marker with multiselect
         print("[q]    - stop capture")
         
         hkey_0 = keyboard.add_hotkey('alt', self._reset_mark)
@@ -112,7 +132,6 @@ class step:
                     display.display_png(self._img)  
                 prev=[pos.x,pos.y]   
             
-            # ToDo:
             # if [r] is pressed / recapture the image from previous location 
             if self._flags[1]==True:
                 self._flags[1]=False
@@ -166,8 +185,8 @@ class step:
                 try:
                     markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'"+str(marker[2])+"','"+str(marker[3])+"'],"
                 except:
-                    # ToDo: Think how this is B.A.D.
-                    markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'click',''],"
+                    # ToDo: Think how this is B.A.D. +
+                    markers_str=markers_str+"["+str(marker[0])+","+str(marker[1])+",'ui',''],"
 
             self._markers_str = markers_str[:-1]+"]"
         # Update _script
@@ -176,22 +195,88 @@ class step:
         self._script = self._markers_str+self._script[cutpoint:]
     
     def run(self):
+        """
+        executes the [pre] script, detects the image, runs [script]
+        used for testing an called by [workflow] during execution.
+        Exception handeling is done by the [workflow] object
+        
+        ToDo: Update save and load PNG to include [_markers] [_pre] 
+              and [_script] sepparately, or in a list?
+        
+        """
         # run pre script
         if not(self._pre_script == None):
             exec(self._pre_script)
         # find image
         self.found_loc = None
         self.found_loc=find_in_window(self._img, tries=self.timeout, scroll=self._scroll)
-        # run main script
-        if not(self._script == None):
-            exec(self._script)
+        
+        # if no image is found, maybe move into execution if we want to have custom logic for not found as well
+        if self.found_loc==None:
+            print("-> Image Not Found")
+            return
+        
+        for location in self._markers:
+            abs_location = [self.found_loc.left+location[0], self.found_loc.top+location[1]]
+            # ToDo incorporate the logic into step object and leave only pre and custom logic here
+            if location[2] == 'ui':
+                # params [0,0,'type', [txt,params]], params: no_ctrA, no_click, no_mouse, no_text, no_enter, copy, paste, tab
+                try:
+                    text = location[3][0]
+                except:
+                    text = ""
+
+                if not('no_ctrA' in location[3][1]):
+                    time.sleep(self.ui_delay)
+                    gui.hotkey('ctrl','a')
+                    print("    -> Keystroke: [ctrl]+[a]")
+                if not('no_click' in location[3][1]):
+                    time.sleep(self.ui_delay)
+                    gui.click(abs_location[0], abs_location[1])
+                    print("    -> clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+                if not('no_text' in location[3][1]):    
+                    time.sleep(self.ui_delay)
+                    gui.typewrite(text)
+                    print("    -> Typed @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+                    print("    -> "+text)
+                if not('no_enter' in location[3][1]):
+                    time.sleep(self.ui_delay)
+                    gui.press('enter')
+                if 'copy' in location[3][1]:
+                    time.sleep(self.ui_delay)
+                    gui.hotkey('ctrl','c')
+                    print("    -> Keystroke: [ctrl]+[c]")
+                if 'paste' in location[3][1]:
+                    time.sleep(self.ui_delay)
+                    gui.hotkey('ctrl','c')
+                    print("    -> Keystroke: [ctrl]+[v]")
+                if 'tab' in location[3][1]:
+                    time.sleep(self.ui_delay)
+                    gui.hotkey('tab')
+                    print("    -> Keystroke: [tab]")
+
+            if location[2] == 'python':
+                print("    -> running python")
+                exec(self._script)
+            
     
     def copy(self):
+        """
+        copies the [pre] and [script] property of the [step] as single 
+        string plain text
+        
+        """
         out = self.step2string()
         pyperclip.copy(out)
         print("    Scripts copied")
         
     def step2string(self):
+        """
+        converts the [pre] and [script] property of the [step] object into string
+        if no pre process script is present a python comment line '#pre' and 
+        a new line are added in front of the script
+        
+        """
         # if pre script is used
         if self._pre_script==None:
             pre = ""
@@ -202,7 +287,18 @@ class step:
         return(out)
     
     def string2step(self,inp):
-        # split string into pre and normal script (pre script 1st with starting line [#pre script] and script later staring with [#script] line )
+        """
+        updates [pre] and [script] property of the [step] object. 
+        The copied text should be as following:
+        
+
+        
+        ToDo: add default delay if line starts with 'gui.' and 
+              previous line does not start with 'time.sleep'
+        
+        
+        """
+        # assumption that 1st line is commenty and evrything after that untill '#script' is pre script
         pre = inp[inp.find('\n'):inp.find('#script')].strip()
         # if pre script is empty
         if pre=='':
@@ -213,6 +309,40 @@ class step:
         return(pre,scr)
         
     def paste(self):
+        """
+        updates the [pre] and [script] property of the [step] from clipboard 
+        as plain text, formatted as follows:
+        
+        start with '#pre'
+        Then have the python code for running before detecting an 
+        image
+        If nothing needs to be done, leave empty
+        Then the main part starts from the next line that starts 
+        with '#script'
+        Next line should be loc = [[x,y,'action','params'],...]
+        And then python code to run if image is found or not
+        
+        self.found_loc==None
+        Then image is not found
+        
+        If image is found is recomended to use the template code
+        You can get the the template code by:
+        
+        import xx
+        test = xx.step()
+        test.copy()
+        
+        and then paste the output to any text editor
+        once done editing copy the text in text editor 
+        and copy and run:
+        
+        test.paste()
+        
+        Once ready test the step again by either running a workflow 
+        or step individually:
+        
+        test.run()
+        """
         in_string = pyperclip.paste()
         pre,src=self.string2step(in_string)
         if pre==None:
@@ -230,6 +360,14 @@ class step:
             print("    Scripts NOT updated")
     
     def savePNG(self,file_name):
+        """
+        save the [step] object as .png file. The file contains the image 
+        to be searched and python logic to recreate the [step] object
+        
+        ToDo: Multiple searchable object support via file numbering 
+              ie. test.0.png, test.1.png ...
+              
+        """
         if self._img == None:
             print("    Capture image 1st before exporting, nothing to export yet...")
             return

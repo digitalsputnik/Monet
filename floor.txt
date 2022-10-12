@@ -1,0 +1,51 @@
+Begin Map
+   Begin Level
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_10 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor'
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Plane.Plane"'
+            StaticMeshImportVersion=1
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_0000000000000080000000000000803F000000000000803F0000803F2A93FF2B1BA5357BBA08D886A37297D600000000010000000100000000000000000000000100000000000000000000000100000001000000000100000000000001000000000000000000F03F000000000000F03F000000000000F03F0000803F00000000050000004E6F6E65000C00000030000000803F0000803F0000000000000041000000000000A0420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=Material'"/Game/DarkGrid.DarkGrid"'
+            RelativeLocation=(X=0.000000,Y=0.000000,Z=-333.025147)
+            RelativeScale3D=(X=40.000000,Y=40.000000,Z=40.000000)
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Floor"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_12 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor'
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Plane.Plane"'
+            StaticMeshImportVersion=1
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_0000000000000080000000000000803F000000000000803F0000803F2A93FF2B1BA5357BBA08D886A37297D600000000010000000100000000000000000000000100000000000000000000000100000001000000000100000000000001000000000000000000F03F000000000000F03F000000000000F03F0000803F00000000050000004E6F6E65000C00000030000000803F0000803F0000000000000041000000000000A0420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=Material'"/Game/blackBg.blackBg"'
+            RelativeLocation=(X=-40.000000,Y=0.000000,Z=-340.000000)
+            RelativeScale3D=(X=40000.000000,Y=40000.000000,Z=40.000000)
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Floor2"
+      End Actor
+      Begin Actor Class=/Script/Engine.StaticMeshActor Name=StaticMeshActor_63 Archetype=/Script/Engine.StaticMeshActor'/Script/Engine.Default__StaticMeshActor'
+         Begin Object Class=/Script/Engine.StaticMeshComponent Name="StaticMeshComponent0" Archetype=StaticMeshComponent'/Script/Engine.Default__StaticMeshActor:StaticMeshComponent0'
+         End Object
+         Begin Object Name="StaticMeshComponent0"
+            StaticMesh=StaticMesh'"/Engine/BasicShapes/Plane.Plane"'
+            StaticMeshImportVersion=1
+            StaticMeshDerivedDataKey="STATICMESH_A8F10585DE67499EA913B652DC4A955E_228332BAE0224DD294E232B87D83948FQuadricMeshReduction_V2$2e1_AC88CFBD$2dDA61$2d4A9C$2d8488$2dF64D2DAF699D_CONSTRAINED_0000000000000080000000000000803F000000000000803F0000803F2A93FF2B1BA5357BBA08D886A37297D600000000010000000100000000000000000000000100000000000000000000000100000001000000000100000000000001000000000000000000F03F000000000000F03F000000000000F03F0000803F00000000050000004E6F6E65000C00000030000000803F0000803F0000000000000041000000000000A0420303030000000000000000_LS0MNSzzzzzzzz0_SWLZ"
+            OverrideMaterials(0)=Material'"/Game/GlowingGrid.GlowingGrid"'
+            RelativeLocation=(X=0.000000,Y=0.000000,Z=-333.000000)
+            RelativeScale3D=(X=40.000000,Y=40.000000,Z=40.000000)
+         End Object
+         StaticMeshComponent="StaticMeshComponent0"
+         RootComponent="StaticMeshComponent0"
+         ActorLabel="Floor3"
+      End Actor
+   End Level
+Begin Surface
+End Surface
+End Map
