@@ -1,0 +1,1 @@
+self._draw['jupyter'][1].append('widgets.Text(value="val",description="X: ")')
