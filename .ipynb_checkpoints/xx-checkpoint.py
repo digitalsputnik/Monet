@@ -11,7 +11,7 @@ import io
 import dill
 import codecs
 
-def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9):
+def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9, scale=1.0):
     """
     returns found image cordinates from desktop
     
@@ -39,7 +39,8 @@ def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9):
         if not(scroll==0):
             gui.scroll(scroll*-1)
         try:
-            out = gui.locateOnScreen(imgsrc, confidence=match_q)
+            _scaled_img = imgsrc.resize((int(imgsrc.size[0]*scale),int(imgsrc.size[1]*scale)),Image.ANTIALIAS)
+            out = gui.locateOnScreen(_scaled_img, confidence=match_q)
             if out!=None:
                 return out
         except Exception as e:
@@ -73,7 +74,7 @@ class step:
     ****  https://github.com/gereleth/jupyter-bbox-widget
     
     """
-    def __init__(self, img=None, scrollable=False, pre = None, script= None, timeout=10):
+    def __init__(self, img=None, scrollable=False, pre = None, script= None, timeout=10, scale=1.0):
         self._scroll = scrollable    # will scroll down between all tries
         self._pre_script = pre       # script to be ran before looking for the image
         self._flags = [False,False,False,False] # Flags for capture keyboartd feedback [mark,recapture,marker,quit]
@@ -85,6 +86,7 @@ class step:
         self.match_q = 0.8           # Default search quality
         self.break_flow = False      # If this true if there is an error the workflow will stop and not try next step
         self.payload = None          # palce to keep the data that is saved in step but can be input/output in the runtime
+        self.scale = scale
         self.ui = []
         # main script
         self._script = script
@@ -190,12 +192,12 @@ class step:
     def capture(self,draw_ui=True):
         # ToDo: split crosshair drawing into sepparate function
         print("Capture images and (input) positions for step construction")
-        print("[alt]  - mark image corner (top left to right bottom)")
+        print("[command]  - mark image corner (top left to right bottom)")
         print("[r]    - recapture image with previous location, ie no mouse highlight")
         print("[m]    - add click or input marker, print variable as string")
         print("[q]    - stop capture")
         
-        hkey_0 = keyboard.add_hotkey('alt', self._reset_mark)
+        hkey_0 = keyboard.add_hotkey('command', self._reset_mark)
         hkey_1 = keyboard.add_hotkey('r', self._reset_recapture)
         hkey_2 = keyboard.add_hotkey('m', self._reset_marker)
         hkey_3 = keyboard.add_hotkey('q', self._reset_quit)
@@ -207,16 +209,18 @@ class step:
         while True:
             # if [alt] is pressed / mark corner
             if self._flags[0]==True:
-                pos = gui.position()
+                pos = []
+                pos.append(int(gui.position().x*self.scale))
+                pos.append(int(gui.position().y*self.scale))
                 self._flags[0]=False
                 # ignore 1st click for image viewer
                 if prev==False:
                     prev = [0,0]
                 else:
-                    last_screenshot = "gui.screenshot(region=("+str(prev[0])+","+str(prev[1])+","+str(pos.x-prev[0])+","+str(pos.y-prev[1])+"))"
+                    last_screenshot = "gui.screenshot(region=("+str(prev[0])+","+str(prev[1])+","+str(pos[0]-prev[0])+","+str(pos[1]-prev[1])+"))"
                     print("-> "+last_screenshot)
                     #get_color(pos.x,pos.y)
-                    self._img = gui.screenshot(region=(prev[0],prev[1],pos.x-prev[0],pos.x-prev[0]))
+                    self._img = gui.screenshot(region=(prev[0],prev[1],pos[0]-prev[0],pos[1]-prev[1]))
                     top_right_corner = prev
                     display.display_png(self._img)  
                     
@@ -229,13 +233,13 @@ class step:
                     self.props = []
                     self.props.append(prop("x",str(prev[0]),draw=draw_txt_str,on_edit=edit_str))
                     self.props.append(prop("y",str(prev[1]),draw=draw_txt_str,on_edit=edit_str))
-                    self.props.append(prop("width",str(pos.x-prev[0]),draw=draw_txt_str,on_edit=edit_str))
-                    self.props.append(prop("height",str(pos.x-prev[0]),draw=draw_txt_str,on_edit=edit_str))
+                    self.props.append(prop("width",str(pos[0]-prev[0]),draw=draw_txt_str,on_edit=edit_str))
+                    self.props.append(prop("height",str(pos[1]-prev[1]),draw=draw_txt_str,on_edit=edit_str))
                     
                     for p in self.props:
                         p.draw()
                         
-                prev=[pos.x,pos.y]   
+                prev=[pos[0],pos[1]]   
             
             # if [r] is pressed / recapture the image from previous location 
             if self._flags[1]==True:
@@ -246,13 +250,15 @@ class step:
             
             # if [m] is pressed / add marker 
             if self._flags[2]==True:
-                pos = gui.position()
+                pos = []
+                pos.append(int(gui.position().x*self.scale))
+                pos.append(int(gui.position().y*self.scale))
                 self._flags[2]=False
-                preview = gui.screenshot(region=(pos.x-25,pos.y-25,50,50))
+                preview = gui.screenshot(region=(pos[0]-25,pos[1]-25,50,50))
                 preview_draw = ImageDraw.Draw(preview)
-                preview_draw.line((25,12,25,38),fill='red')
-                preview_draw.line((12,25,38,25),fill='red')
-                print("-> _markers.append("+str(pos.x-top_right_corner[0])+","+str(pos.y-top_right_corner[1])+",'click',''))")
+                #preview_draw.line((25,12,25,38),fill='red')
+                #preview_draw.line((12,25,38,25),fill='red')
+                #print("-> _markers.append("+str(pos[0]-top_right_corner[0])+","+str(pos[1]-top_right_corner[1])+",'click',''))")
                 display.display_png(preview)
                 
                 # create props (adjustable parameters for markers)
@@ -262,8 +268,8 @@ class step:
                 draw_checkbox_str = "self.w=widgets.Checkbox(value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names='value')"
                 edit_str = "self.w.value = self._val"
                 
-                loc_x = prop("x",str(pos.x-top_right_corner[0]),draw=draw_txt_str,on_edit=edit_str)
-                loc_y = prop("y",str(pos.y-top_right_corner[1]),draw=draw_txt_str,on_edit=edit_str)
+                loc_x = prop("x",str(pos[0]-top_right_corner[0]),draw=draw_txt_str,on_edit=edit_str)
+                loc_y = prop("y",str(pos[1]-top_right_corner[1]),draw=draw_txt_str,on_edit=edit_str)
                 loc_ctra = prop("[ctr]+[a]",True,draw=draw_checkbox_str,on_edit=edit_str)
                 loc_click = prop("[mouse click]",True,draw=draw_checkbox_str,on_edit=edit_str)
                 loc_text = prop("text","",draw=draw_txt_str,on_edit=edit_str)
@@ -312,7 +318,7 @@ class step:
             exec(self._pre_script)
         # find image
         self.found_loc = None
-        self.found_loc=find_in_window(self._img, tries=self.timeout, scroll=self._scroll)
+        self.found_loc=find_in_window(self._img, tries=self.timeout, scroll=self._scroll, scale=self.scale)
         
         # if no image is found, maybe move into execution if we want to have custom logic for not found as well
         if self.found_loc==None:
@@ -320,7 +326,10 @@ class step:
             return
         
         for location in self._markers:
-            abs_location = [self.found_loc.left+int(location[0]['x'].value), self.found_loc.top+int(location[0]['y'].value)]
+            scaled_loc = []
+            scaled_loc.append(int(self.found_loc.left*self.scale))
+            scaled_loc.append(int(self.found_loc.top*self.scale))
+            abs_location = [scaled_loc[0]+int(location[0]['x'].value), scaled_loc[1]+int(location[0]['y'].value)]
             # ToDo incorporate the logic into step object and leave only pre and custom logic here
             if location[1] == 'ui':
                 # params [0,0,'type', [txt,params]], params: no_ctrA, no_click, no_mouse, no_text, no_enter, copy, paste, tab
