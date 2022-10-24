@@ -56,19 +56,12 @@ class step:
     Step is a single unit of logic to find partial image on screen 
     and preform n number of actions realtive to the found location
     
-    ToDo: Add default delay on str2stp, remove default dealy for 
-          stp2str // make _add_delay, _remove_delay functions and 
-          impelemnt them in str2 functionality
     ToDo: Move screencapture to:
           https://python-mss.readthedocs.io/examples.html
           also image detection (cv2)
-    ToDo: Create jupyter compatible GUI to edit the markers
-          ie. temp.py
           
     TODO: create jupyter object with draw_marker(step, marker), draw_markers(markers)
           [] int,float,str,char -> text input
-          [] bool -> checkbox
-          [] img -> img
           [] multiselect?
           
     ****  https://github.com/gereleth/jupyter-bbox-widget
@@ -116,88 +109,17 @@ class step:
             count = count+1
             marker_lib = marker[0]
             for record in marker_lib:
-                marker_lib[record].draw()
-        
-    
-        """
-        current_marker = self._markers[marker]
-        
-        # make the image to png file bytearray
-        buff = io.BytesIO()
-        img = value=current_marker[4]
-        img.save(buff, format='png')
-
-        # generate controllers
-        loc_x = widgets.Text(value=str(current_marker[0]),description='X:')
-        loc_y = widgets.Text(value=str(current_marker[1]),description='Y:')
-        if 'no_ctrA' in current_marker[3]:
-            chkb1 = widgets.Checkbox(value=False, description="[ctrl]+[a]")
-        else:
-            chkb1 = widgets.Checkbox(value=True, description="[ctrl]+[a]")
-        
-        def chkb1_callback(inp):
-            if inp.new == True:
-                if 'no_ctrA' in self._markers[marker][3]:
-                    self._markers[marker][3].remove('no_ctrA')
-            else:
-                if not('no_ctrA' in self._markers[marker][3]):
-                    self._markers[marker][3].append('no_ctrA')
-                    
-        chkb1.observe(chkb1_callback,names='value')
-        
-        
-        chkb2 = widgets.Checkbox(value=True, description="mouse move")
-        if 'no_click' in current_marker[3]:
-            chkb3 = widgets.Checkbox(value=False, description="mouse [click]")
-        else:
-            chkb3 = widgets.Checkbox(value=True, description="mouse [click]")
-            
-        def chkb3_callback(inp):
-            if inp.new == True:
-                if 'no_click' in self._markers[marker][3]:
-                    self._markers[marker][3].remove('no_click')
-            else:
-                if not('no_click' in self._markers[marker][3]):
-                    self._markers[marker][3].append('no_click')
-                    
-        chkb3.observe(chkb3_callback,names='value')
-
-        typein = widgets.Text(value='',description='type:')
-            
-        if 'no_enter' in current_marker[3]:
-            chkb4 = widgets.Checkbox(value=False, description="[enter]")
-        else:
-            chkb4 = widgets.Checkbox(value=True, description="[enter]")
-            
-        def chkb4_callback(inp):
-            if inp.new == True:
-                if 'no_enter' in self._markers[marker][3]:
-                    self._markers[marker][3].remove('no_enter')
-            else:
-                if not('no_enter' in self._markers[marker][3]):
-                    self._markers[marker][3].append('no_enter')
-                    
-        chkb4.observe(chkb4_callback,names='value')
-        
-        image_side = widgets.VBox(children=[widgets.Image(value=buff.getvalue())])
-        data_side = widgets.VBox(children=[loc_x,loc_y,chkb1,chkb2,chkb3,typein,chkb4])
-        return widgets.HBox(children=[image_side,data_side])
-        """
-
-    def copy(self, other):
-        self._img = other._img
-        self._markers = other._markers
-        
+                marker_lib[record].draw()        
     
     def capture(self,draw_ui=True):
         # ToDo: split crosshair drawing into sepparate function
         print("Capture images and (input) positions for step construction")
-        print("[command]  - mark image corner (top left to right bottom)")
+        print("[ctrl]  - mark image corner (top left to right bottom)")
         print("[r]    - recapture image with previous location, ie no mouse highlight")
         print("[m]    - add click or input marker, print variable as string")
         print("[q]    - stop capture")
         
-        hkey_0 = keyboard.add_hotkey('command', self._reset_mark)
+        hkey_0 = keyboard.add_hotkey('ctrl', self._reset_mark)
         hkey_1 = keyboard.add_hotkey('r', self._reset_recapture)
         hkey_2 = keyboard.add_hotkey('m', self._reset_marker)
         hkey_3 = keyboard.add_hotkey('q', self._reset_quit)
@@ -226,8 +148,9 @@ class step:
                     
                     #daw UI
                     print("Step properties:")
-                    draw_txt_str = "self.w=widgets.Text(value=str(self._val),description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names='value')"
-                    draw_checkbox_str = "self.w=widgets.Checkbox(value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names='value')"
+                    draw_txt_str = "self.w=widgets.Text(value=str(self._val),description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
+                    draw_checkbox_str = "self.w=widgets.Checkbox(value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
+                    draw_dropdown_str = "self.w=widgets.Dropdown(options=['move', 'click', 'right-click','double-click'],value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
                     edit_str = "self.w.value = self._val"
                 
                     self.props = []
@@ -264,18 +187,20 @@ class step:
                 # create props (adjustable parameters for markers)
                 # x,y,no_ctrA, no_click, no_text, no_enter
                 # ToDo: no_mouse, copy, paste, tab
-                draw_txt_str = "self.w=widgets.Text(value=str(self._val),description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names='value')"
-                draw_checkbox_str = "self.w=widgets.Checkbox(value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names='value')"
+                draw_txt_str = "self.w=widgets.Text(value=str(self._val),description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
+                draw_checkbox_str = "self.w=widgets.Checkbox(value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
+                draw_dropdown_str = "self.w=widgets.Dropdown(options=['move', 'click', 'right-click','double-click'],value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
                 edit_str = "self.w.value = self._val"
                 
                 loc_x = prop("x",str(pos[0]-top_right_corner[0]),draw=draw_txt_str,on_edit=edit_str)
                 loc_y = prop("y",str(pos[1]-top_right_corner[1]),draw=draw_txt_str,on_edit=edit_str)
+                #loc_click = prop("[mouse click]",True,draw=draw_checkbox_str,on_edit=edit_str)
+                loc_mouse = prop("mouse",'click',draw=draw_dropdown_str,on_edit=edit_str)
                 loc_ctra = prop("[ctr]+[a]",True,draw=draw_checkbox_str,on_edit=edit_str)
-                loc_click = prop("[mouse click]",True,draw=draw_checkbox_str,on_edit=edit_str)
                 loc_text = prop("text","",draw=draw_txt_str,on_edit=edit_str)
                 loc_enter = prop("[enter]",True,draw=draw_checkbox_str,on_edit=edit_str)
                 
-                self._markers.append([{'x':loc_x,'y':loc_y,'ctrla':loc_ctra,'click':loc_click,'text':loc_text,'enter':loc_enter},'ui','',preview])
+                self._markers.append([{'x':loc_x,'y':loc_y,'ctrla':loc_ctra,'mouse':loc_mouse,'text':loc_text,'enter':loc_enter},'ui','',preview])
                 
                 # draw ui
                 if draw_ui==True:
@@ -283,7 +208,7 @@ class step:
                     loc_x.draw()
                     loc_y.draw()
                     loc_ctra.draw()
-                    loc_click.draw()
+                    loc_mouse.draw()
                     loc_text.draw()
                     loc_enter.draw()
                            
@@ -298,8 +223,8 @@ class step:
     
     def update_marker(self, marker_nr, xin=0, yin=0, mode='ui', payload=None, img=None):           
         try:
-            self._markers[marker_nr][0]['x'].value = xin
-            self._markers[marker_nr][0]['y'].value = yin
+            self._markers[marker_nr][0]['x'].value(val=xin)
+            self._markers[marker_nr][0]['y'].value(val=yin)
             self._markers[marker_nr][2] = mode
             self._markers[marker_nr][3] = payload
             self._markers[marker_nr][3] = img
@@ -323,13 +248,13 @@ class step:
         # if no image is found, maybe move into execution if we want to have custom logic for not found as well
         if self.found_loc==None:
             print("-> Image Not Found")
-            return
+            return False
         
         for location in self._markers:
             scaled_loc = []
             scaled_loc.append(int(self.found_loc.left*self.scale))
             scaled_loc.append(int(self.found_loc.top*self.scale))
-            abs_location = [scaled_loc[0]+int(location[0]['x'].value), scaled_loc[1]+int(location[0]['y'].value)]
+            abs_location = [self.found_loc.left+int(location[0]['x'].value()), self.found_loc.top+int(location[0]['y'].value())]
             # ToDo incorporate the logic into step object and leave only pre and custom logic here
             if location[1] == 'ui':
                 # params [0,0,'type', [txt,params]], params: no_ctrA, no_click, no_mouse, no_text, no_enter, copy, paste, tab
@@ -338,20 +263,33 @@ class step:
                 except:
                     text = ""
                 
-                if location[0]['ctrla'].value==True:
-                    time.sleep(self.ui_delay)
-                    gui.hotkey('ctrl','a')
-                    print("    -> Keystroke: [ctrl]+[a]")
-                if location[0]['click'].value==True:
-                    # ToDo: no_mouse
+                # mouse actions
+                if location[0]['mouse'].value()=='click':
                     time.sleep(self.ui_delay)
                     gui.click(abs_location[0], abs_location[1])
                     print("    -> clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
-                if not(location[0]['text'].value==""):    
+                if location[0]['mouse'].value()=='move':
                     time.sleep(self.ui_delay)
-                    gui.typewrite(location[0]['text'].value)
-                    print("    -> Typed : "+location[0]['text'].value)
-                if location[0]['enter'].value:
+                    gui.moveTo(abs_location[0], abs_location[1])
+                    print("    -> mouse moved to: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+                if location[0]['mouse'].value()=='right-click':
+                    time.sleep(self.ui_delay)
+                    gui.click(abs_location[0], abs_location[1],button='right')
+                    print("    -> right-clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+                if location[0]['mouse'].value()=='double-click':
+                    time.sleep(self.ui_delay)
+                    gui.click(abs_location[0], abs_location[1],clicks=2)
+                    print("    -> double-clicked @: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
+                   
+                if location[0]['ctrla'].value()==True:
+                    time.sleep(self.ui_delay)
+                    gui.hotkey('ctrl','a')
+                    print("    -> Keystroke: [ctrl]+[a]")
+                if not(location[0]['text'].value()==""):    
+                    time.sleep(self.ui_delay)
+                    gui.typewrite(location[0]['text'].value())
+                    print("    -> Typed : "+location[0]['text'].value())
+                if location[0]['enter'].value():
                     time.sleep(self.ui_delay)
                     gui.press('enter')
                     print("    -> Keystroke: [enter]")
@@ -384,7 +322,8 @@ class step:
 
             if location[1] == 'python':
                 print("    -> running python")
-                exec(self._script)               
+                exec(self._script) 
+        return True
 
     
     def savePNG(self,file_name):
@@ -396,6 +335,19 @@ class step:
         if self._img == None:
             print("    Capture image 1st before exporting, nothing to export yet...")
             return
+        
+        #close UI
+        for prop in self.props:
+            prop.w.close()
+            del(prop.w)
+        #close marker UI
+        for marker in self._markers:
+            for item in marker[0]:
+                try:
+                    marker[0][item].w.close()
+                    del(marker[0][item].w)
+                except:
+                    pass
         
         metadata = PngInfo()
         metadata.add_text("EMPpayload", codecs.encode(dill.dumps(self),"base64").decode())
@@ -413,8 +365,6 @@ class step:
         dillobj = dill.loads(codecs.decode(payload.encode(), "base64"))
         self.__dict__ = dillobj.__dict__
     
-    def showimg(self):
-        self._img.show()
 
 class workflow:
     """
@@ -479,18 +429,23 @@ class prop:
         self._draw = draw
         exec(self._on_create)
     
-    @property
-    def value(self):
-        return self._val
     
-    @value.setter
-    def value(self, val):
-        if self._val != val:
-            self._prev_val = self._val
-            self._val = val
-        exec(self._on_edit)
+    def __repr__(self):
+        return "'"+str(self.name)+"':'"+str(self._val)+"'"
+        #add asterix if any of the callbacks are edited
+    
+    
+    def value(self, val=None):
+        if val==None:
+            return self._val
+        else:
+            if self._val != val:
+                self._prev_val = self._val
+                self._val = val
+            exec(self._on_edit)
     
     #callback for widget observe
+    # ToDo: looks incorrect
     def setval(self,inp):
         self._val = inp['new']
         
