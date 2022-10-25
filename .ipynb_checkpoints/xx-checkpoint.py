@@ -10,8 +10,36 @@ import ipywidgets as widgets
 import io
 import dill
 import codecs
+import os
+import platform
 
-def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9, scale=1.0):
+def os_ctrl():
+    if platform.system() == 'Darwin':
+        return 'command'
+    else:
+        return os_ctrl()
+
+def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9, recorded_scale=1.0 ):
+    # Use the ui scale to match the recorded and screen resolution
+    # use px2screen to compensate HDPI screen os OSX where the img height = 2 x screen.height
+    ui_scale = os.environ.get("ui_scale")
+    ui_px2screen = os.environ.get("ui_px2screen")
+    
+    if(ui_scale) == "":
+        ui_scale = 1.0
+    else:
+        ui_scale = float(ui_scale)
+        
+    if(ui_px2screen) == "":
+        scale = 1.0
+    else:
+        scale = float(ui_px2screen)
+        
+        
+    img_scale = ui_scale/recorded_scale
+    
+    print("scale multplier = "+str(img_scale))
+    
     """
     returns found image cordinates from desktop
     
@@ -22,6 +50,7 @@ def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9, scal
     # ToDo: move into step obejct?
     
     """
+    #scale = 2.0
     
     for loop in range(tries):
         #if imgsrc is list all items in list will be tested
@@ -34,15 +63,21 @@ def find_in_window(imgsrc,bbox=None,tries=10,wait=1,scroll=0,match_q = 0.9, scal
             print("locating ("+str(loop)+"/"+str(tries)+"): ")
             if loop==0:
                 # limit display instance to only one time
-                display.display_png(imgsrc)  
+                display.display_png(imgsrc) 
         #enable scrolling while looking for specific image    
         if not(scroll==0):
             gui.scroll(scroll*-1)
         try:
-            _scaled_img = imgsrc.resize((int(imgsrc.size[0]*scale),int(imgsrc.size[1]*scale)),Image.ANTIALIAS)
+            _scaled_img =imgsrc.resize((int(imgsrc.size[0]*img_scale),int(imgsrc.size[1]*img_scale)),Image.ANTIALIAS)
             out = gui.locateOnScreen(_scaled_img, confidence=match_q)
             if out!=None:
-                return out
+                outn = []
+                outn.append(int(out.left/scale))
+                outn.append(int(out.top/scale))
+                outn.append(int(out.width/scale))
+                outn.append(int(out.height/scale))
+                print("found @: "+str(outn))
+                return outn
         except Exception as e:
             print(e)
         
@@ -80,6 +115,7 @@ class step:
         self.break_flow = False      # If this true if there is an error the workflow will stop and not try next step
         self.payload = None          # palce to keep the data that is saved in step but can be input/output in the runtime
         self.scale = scale
+        self.img_scale=1.0
         self.ui = []
         # main script
         self._script = script
@@ -112,14 +148,26 @@ class step:
                 marker_lib[record].draw()        
     
     def capture(self,draw_ui=True):
+        ui_scale = os.environ.get("ui_scale")
+        ui_px2screen = os.environ.get("ui_px2screen")
+
+        if(ui_scale) == "":
+            ui_scale = 1.0
+        else:
+            ui_scale = float(ui_scale)
+
+        if(ui_px2screen) == "":
+            scale = 1.0
+        else:
+            scale = float(ui_px2screen)
         # ToDo: split crosshair drawing into sepparate function
         print("Capture images and (input) positions for step construction")
-        print("[ctrl]  - mark image corner (top left to right bottom)")
+        print("["+os_ctrl()+"]  - mark image corner (top left to right bottom)")  
         print("[r]    - recapture image with previous location, ie no mouse highlight")
         print("[m]    - add click or input marker, print variable as string")
         print("[q]    - stop capture")
         
-        hkey_0 = keyboard.add_hotkey('ctrl', self._reset_mark)
+        hkey_0 = keyboard.add_hotkey(os_ctrl(), self._reset_mark)
         hkey_1 = keyboard.add_hotkey('r', self._reset_recapture)
         hkey_2 = keyboard.add_hotkey('m', self._reset_marker)
         hkey_3 = keyboard.add_hotkey('q', self._reset_quit)
@@ -132,8 +180,8 @@ class step:
             # if [alt] is pressed / mark corner
             if self._flags[0]==True:
                 pos = []
-                pos.append(int(gui.position().x*self.scale))
-                pos.append(int(gui.position().y*self.scale))
+                pos.append(int(gui.position().x*scale))
+                pos.append(int(gui.position().y*scale))
                 self._flags[0]=False
                 # ignore 1st click for image viewer
                 if prev==False:
@@ -145,7 +193,7 @@ class step:
                     self._img = gui.screenshot(region=(prev[0],prev[1],pos[0]-prev[0],pos[1]-prev[1]))
                     top_right_corner = prev
                     display.display_png(self._img)  
-                    
+                    self._img_scale = scale
                     #daw UI
                     print("Step properties:")
                     draw_txt_str = "self.w=widgets.Text(value=str(self._val),description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
@@ -174,8 +222,8 @@ class step:
             # if [m] is pressed / add marker 
             if self._flags[2]==True:
                 pos = []
-                pos.append(int(gui.position().x*self.scale))
-                pos.append(int(gui.position().y*self.scale))
+                pos.append(int(gui.position().x*scale))
+                pos.append(int(gui.position().y*scale))
                 self._flags[2]=False
                 preview = gui.screenshot(region=(pos[0]-25,pos[1]-25,50,50))
                 preview_draw = ImageDraw.Draw(preview)
@@ -192,8 +240,8 @@ class step:
                 draw_dropdown_str = "self.w=widgets.Dropdown(options=['move', 'click', 'right-click','double-click'],value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
                 edit_str = "self.w.value = self._val"
                 
-                loc_x = prop("x",str(pos[0]-top_right_corner[0]),draw=draw_txt_str,on_edit=edit_str)
-                loc_y = prop("y",str(pos[1]-top_right_corner[1]),draw=draw_txt_str,on_edit=edit_str)
+                loc_x = prop("x",str(int((pos[0]-top_right_corner[0])/scale)),draw=draw_txt_str,on_edit=edit_str)
+                loc_y = prop("y",str(int((pos[1]-top_right_corner[1])/scale)),draw=draw_txt_str,on_edit=edit_str)
                 #loc_click = prop("[mouse click]",True,draw=draw_checkbox_str,on_edit=edit_str)
                 loc_mouse = prop("mouse",'click',draw=draw_dropdown_str,on_edit=edit_str)
                 loc_ctra = prop("[ctr]+[a]",True,draw=draw_checkbox_str,on_edit=edit_str)
@@ -242,8 +290,14 @@ class step:
         if not(self._pre_script == None):
             exec(self._pre_script)
         # find image
+        try:
+            saved_scaale = self._img_scale
+        except:
+            self._img_scale = 1.0
+            saved_scaale = self._img_scale
+            
         self.found_loc = None
-        self.found_loc=find_in_window(self._img, tries=self.timeout, scroll=self._scroll, scale=self.scale)
+        self.found_loc=find_in_window(self._img, tries=self.timeout, scroll=self._scroll, recorded_scale=self._img_scale)
         
         # if no image is found, maybe move into execution if we want to have custom logic for not found as well
         if self.found_loc==None:
@@ -252,9 +306,9 @@ class step:
         
         for location in self._markers:
             scaled_loc = []
-            scaled_loc.append(int(self.found_loc.left*self.scale))
-            scaled_loc.append(int(self.found_loc.top*self.scale))
-            abs_location = [self.found_loc.left+int(location[0]['x'].value()), self.found_loc.top+int(location[0]['y'].value())]
+            scaled_loc.append(int(self.found_loc[0]))
+            scaled_loc.append(int(self.found_loc[1]))
+            abs_location = [self.found_loc[0]+int(location[0]['x'].value()), self.found_loc[1]+int(location[0]['y'].value())]
             # ToDo incorporate the logic into step object and leave only pre and custom logic here
             if location[1] == 'ui':
                 # params [0,0,'type', [txt,params]], params: no_ctrA, no_click, no_mouse, no_text, no_enter, copy, paste, tab
@@ -283,7 +337,7 @@ class step:
                    
                 if location[0]['ctrla'].value()==True:
                     time.sleep(self.ui_delay)
-                    gui.hotkey('ctrl','a')
+                    gui.hotkey(os_ctrl(),'a')
                     print("    -> Keystroke: [ctrl]+[a]")
                 if not(location[0]['text'].value()==""):    
                     time.sleep(self.ui_delay)
@@ -296,11 +350,11 @@ class step:
                 """
                 if 'copy' in location[3]:
                     time.sleep(self.ui_delay)
-                    gui.hotkey('ctrl','c')
+                    gui.hotkey(os_ctrl(),'c')
                     print("    -> Keystroke: [ctrl]+[c]")
                 if 'paste' in location[3]:
                     time.sleep(self.ui_delay)
-                    gui.hotkey('ctrl','c')
+                    gui.hotkey(os_ctrl(),'c')
                     print("    -> Keystroke: [ctrl]+[v]")
                 if 'tab' in location[3]:
                     time.sleep(self.ui_delay)
@@ -308,14 +362,14 @@ class step:
                     print("    -> Keystroke: [tab]")
                 if 'copy2payload' in location[3]:
                     time.sleep(self.ui_delay)
-                    gui.hotkey('ctrl','c')
+                    gui.hotkey(os_ctrl(),'c')
                     self.payload = pyperclip.paste()
                     print("    -> Keystroke: [ctrl]+[c]")
                     print("    -> clipoard saved as payload")
                 if 'paste4pyaload' in location[3]:
                     pyperclip.copy(self.payload)
                     time.sleep(self.ui_delay)
-                    gui.hotkey('ctrl','v')
+                    gui.hotkey(os_ctrl(),'v')
                     print("    -> Keystroke: [ctrl]+[v]")
                     print("    -> clipoard saved as payload")   
                 """
@@ -338,8 +392,11 @@ class step:
         
         #close UI
         for prop in self.props:
-            prop.w.close()
-            del(prop.w)
+            try:
+                prop.w.close()
+                del(prop.w)
+            except:
+                print("no .w element to print muct be closed")
         #close marker UI
         for marker in self._markers:
             for item in marker[0]:
