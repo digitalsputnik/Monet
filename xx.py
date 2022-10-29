@@ -13,6 +13,12 @@ import codecs
 import os
 import platform
 
+create_txt_str = "self.w=widgets.Text(value=str(self._val),description=self.name)"
+create_checkbox_str = "self.w=widgets.Checkbox(value=self._val,description=self.name)"
+create_dropdown_str = "self.w=widgets.Dropdown(options=['move', 'click', 'right-click','double-click'],value=self._val,description=self.name)"
+draw_str = "display.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
+edit_str = "self.w.value = self._val"
+
 def os_ctrl():
     if platform.system() == 'Darwin':
         return 'command'
@@ -103,6 +109,7 @@ class step:
     
     """
     def __init__(self, img=None, scrollable=False, pre = None, script= None, timeout=10, scale=1.0):
+        self.version = 1666963730.96295 # time.time(), time.ctime(sec) will make it into cstring, local time into time structure
         self._scroll = scrollable    # will scroll down between all tries
         self._pre_script = pre       # script to be ran before looking for the image
         self._flags = [False,False,False,False] # Flags for capture keyboartd feedback [mark,recapture,marker,quit]
@@ -137,15 +144,25 @@ class step:
         
     def _reset_quit(self):
         self._flags[3] = True
+                
+    def edit_marker(self, marker):
+        for i in marker[0]:
+            marker[0][i].draw()
     
-    def display_markers(self):
+    def edit_step(self):
+        print("")
+        print("Step Properties:")
+        self.edit_props()
         count = 0
-        for marker in self._markers:
-            print(str(count)+": "+str(marker[1]))
+        for i in self._markers:
+            print("")
+            print("Marker "+str(count)+" properties:")
+            self.edit_marker(i)
             count = count+1
-            marker_lib = marker[0]
-            for record in marker_lib:
-                marker_lib[record].draw()        
+    
+    def edit_props(self):
+        for i in self.props:
+            i.draw()
     
     def capture(self,draw_ui=True):
         ui_scale = os.environ.get("ui_scale")
@@ -196,19 +213,15 @@ class step:
                     self._img_scale = ui_scale
                     #daw UI
                     print("Step properties:")
-                    draw_txt_str = "self.w=widgets.Text(value=str(self._val),description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
-                    draw_checkbox_str = "self.w=widgets.Checkbox(value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
-                    draw_dropdown_str = "self.w=widgets.Dropdown(options=['move', 'click', 'right-click','double-click'],value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
-                    edit_str = "self.w.value = self._val"
-                
                     self.props = []
-                    self.props.append(prop("x",str(prev[0]),draw=draw_txt_str,on_edit=edit_str))
-                    self.props.append(prop("y",str(prev[1]),draw=draw_txt_str,on_edit=edit_str))
-                    self.props.append(prop("width",str(pos[0]-prev[0]),draw=draw_txt_str,on_edit=edit_str))
-                    self.props.append(prop("height",str(pos[1]-prev[1]),draw=draw_txt_str,on_edit=edit_str))
+                    self.props.append(prop("x",str(prev[0]),on_create=create_txt_str,on_edit=edit_str, draw=draw_str))
+                    self.props.append(prop("y",str(prev[1]),on_create=create_txt_str,on_edit=edit_str, draw=draw_str))
+                    self.props.append(prop("width",str(pos[0]-prev[0]),on_create=create_txt_str,on_edit=edit_str, draw=draw_str))
+                    self.props.append(prop("height",str(pos[1]-prev[1]),on_create=create_txt_str,on_edit=edit_str, draw=draw_str))
+                    self.props.append(prop("break if not found",True,on_create=create_checkbox_str,on_edit=edit_str, draw=draw_str))
                     
-                    for p in self.props:
-                        p.draw()
+                    if draw_ui==True:
+                        self.edit_props()
                         
                 prev=[pos[0],pos[1]]   
             
@@ -235,30 +248,22 @@ class step:
                 # create props (adjustable parameters for markers)
                 # x,y,no_ctrA, no_click, no_text, no_enter
                 # ToDo: no_mouse, copy, paste, tab
-                draw_txt_str = "self.w=widgets.Text(value=str(self._val),description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
-                draw_checkbox_str = "self.w=widgets.Checkbox(value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
-                draw_dropdown_str = "self.w=widgets.Dropdown(options=['move', 'click', 'right-click','double-click'],value=self._val,description=self.name)\ndisplay.display(self.w)\nself.w.observe(self.setval,names=\"value\")"
-                edit_str = "self.w.value = self._val"
                 
-                loc_x = prop("x",str(int((pos[0]-top_right_corner[0])/scale)),draw=draw_txt_str,on_edit=edit_str)
-                loc_y = prop("y",str(int((pos[1]-top_right_corner[1])/scale)),draw=draw_txt_str,on_edit=edit_str)
-                #loc_click = prop("[mouse click]",True,draw=draw_checkbox_str,on_edit=edit_str)
-                loc_mouse = prop("mouse",'click',draw=draw_dropdown_str,on_edit=edit_str)
-                loc_ctra = prop("[ctr]+[a]",True,draw=draw_checkbox_str,on_edit=edit_str)
-                loc_text = prop("text","",draw=draw_txt_str,on_edit=edit_str)
-                loc_enter = prop("[enter]",True,draw=draw_checkbox_str,on_edit=edit_str)
+                loc_x = prop("x",str(int((pos[0]-top_right_corner[0])/scale)),on_create=create_txt_str,on_edit=edit_str, draw=draw_str)
+                loc_y = prop("y",str(int((pos[1]-top_right_corner[1])/scale)),on_create=create_txt_str,on_edit=edit_str, draw=draw_str)
+                #loc_click = prop("[mouse click]",True,on_create=create_checkbox_str,on_edit=edit_str, draw=draw_str)
+                loc_mouse = prop("mouse",'click',on_create=create_dropdown_str,on_edit=edit_str, draw=draw_str)
+                loc_ctra = prop("[ctr]+[a]",True,on_create=create_checkbox_str,on_edit=edit_str, draw=draw_str)
+                loc_text = prop("text","",on_create=create_txt_str,on_edit=edit_str, draw=draw_str)
+                loc_enter = prop("[enter]",True,on_create=create_checkbox_str,on_edit=edit_str, draw=draw_str)
                 
                 self._markers.append([{'x':loc_x,'y':loc_y,'ctrla':loc_ctra,'mouse':loc_mouse,'text':loc_text,'enter':loc_enter},'ui','',preview])
                 
                 # draw ui
                 if draw_ui==True:
-                    print("["+str(len(self._markers))+"] Step: ")
-                    loc_x.draw()
-                    loc_y.draw()
-                    loc_ctra.draw()
-                    loc_mouse.draw()
-                    loc_text.draw()
-                    loc_enter.draw()
+                    l_id = len(self._markers)-1
+                    print("["+str(l_id)+"] Step: ")
+                    self.edit_marker(self._markers[l_id])
                            
             # if [q] is pressed / end capture   
             if self._flags[3]==True:
@@ -302,6 +307,11 @@ class step:
         # if no image is found, maybe move into execution if we want to have custom logic for not found as well
         if self.found_loc==None:
             print("-> Image Not Found")
+            for i in self.props:
+                if i.name=='break if not found':
+                    print(i.value())
+                    if i.value()==True:
+                        raise Exception("[!] Image not found, breaking flow!")
             return False
         
         for location in self._markers:
@@ -341,8 +351,10 @@ class step:
                     print("    -> Keystroke: [ctrl]+[a]")
                 if not(location[0]['text'].value()==""):    
                     time.sleep(self.ui_delay)
-                    gui.typewrite(location[0]['text'].value())
-                    print("    -> Typed : "+location[0]['text'].value())
+                    pyperclip.copy(location[0]['text'].value())
+                    gui.hotkey(os_ctrl(),'v')
+                    #gui.typewrite(location[0]['text'].value())
+                    print("    -> Pasted : "+location[0]['text'].value())
                 if location[0]['enter'].value():
                     time.sleep(self.ui_delay)
                     gui.press('enter')
@@ -421,6 +433,14 @@ class step:
         print("    Payload loaded, overwritng self")
         dillobj = dill.loads(codecs.decode(payload.encode(), "base64"))
         self.__dict__ = dillobj.__dict__
+        
+        # reactivate step props
+        for p in self.props:
+            p.recreate()
+        # reactivate marlker props
+        for m in self._markers:
+            for prp in m[0]:
+                m[0][prp].recreate()
     
 
 class workflow:
@@ -436,28 +456,6 @@ class workflow:
     def __init__(self):
         self.steps = []
         self._current_step = 0
-    
-    def load_folder(self, path2folder):
-        # Loads all png files in folder as workflow
-        #
-        # ToDo path2folder
-        filelist=os.listdir('.')
-        pnglist = []
-        for file in filelist:
-            if file.endswith(".png"):
-                pnglist.append(file)
-        
-        pnglist = sorted(pnglist)
-             
-        for png in pnglist:
-            self.steps.append(step())
-            self.steps[-1].loadPNG(png)
-    
-    def append(self, file=None):
-        if file:
-            self.steps.append([step(file),file])
-        else:
-            self.steps.append([step(),None])
     
     def run(self):
         steps_total = len(self.steps)
@@ -491,7 +489,10 @@ class prop:
         return "'"+str(self.name)+"':'"+str(self._val)+"'"
         #add asterix if any of the callbacks are edited
     
+    def recreate(self):
+        exec(self._on_create)
     
+    # Maybe create normal set and get procedures
     def value(self, val=None):
         if val==None:
             return self._val
@@ -502,8 +503,9 @@ class prop:
             exec(self._on_edit)
     
     #callback for widget observe
-    # ToDo: looks incorrect
+    # ToDo: looks incorrect, similar to value but as used in callback cannot use named parameters
     def setval(self,inp):
+        print(inp)
         self._val = inp['new']
         
     def cancel(self):
