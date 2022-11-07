@@ -33,7 +33,7 @@ def stop():
 
 def execute_next():
     global running, q_received, q_to_send
-    if running == True:
+    if running == True and q_to_send.empty == True and q_received.empty != True:
         packet = q_received.get()
     
         command = packet[0]
@@ -54,5 +54,10 @@ def execute_next():
         if (len(output) > 0):
             q_to_send.put((str((tag, identifier, result)).encode(), address))
             print(output)
-    else:
-        print("Artnet not running")
+            
+        return
+    if running == True and q_to_send.empty != True:
+        data = q_to_send.get()
+        self.listener.socket.sendto(data[0],data[1])
+        print("Sending data: "+str(data[0]))
+        return

@@ -1,6 +1,7 @@
 from time import sleep
 import threading, queue
 import socket
+import uuid
 from struct import pack, unpack
 
 class ArtnetClient(threading.Thread):
@@ -22,6 +23,10 @@ class ArtnetClient(threading.Thread):
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.socket.bind((self.ip,self.port))
         while self._is_running:
+            if self.to_send_queue.empty() != True:
+                    to_send_data = self.to_send_queue.get()
+                    self.socket.sendto(to_send_data[0], to_send_data[1])
+                    
             try:
                 data, address = self.socket.recvfrom(1024)
         
@@ -31,13 +36,14 @@ class ArtnetClient(threading.Thread):
                 else:
                     print("Received a non Art-Net packet")
                 
-                if self.to_send_queue.empty() != True:
-                    to_send_data = self.to_send_queue.get()
-                    self.socket.sendto(to_send_data[0], to_send_data[1])
+                
                     
             except Exception as e:
                 print(e)
                 sleep(0.2)
+    
+    def send(self,tags,data,ip = ('0.0.0.0',6454)):
+        self.to_send_queue.put((str((tags, str(uuid.uuid4()), data)).encode(), ip))    
     
     def stop(self):
         self.socket.close()

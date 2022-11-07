@@ -1,3 +1,5 @@
+# ToDo replace keybaor with pynput
+
 import time
 import pyautogui as gui
 import keyboard
