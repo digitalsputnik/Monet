@@ -171,8 +171,8 @@ class step():
     
     """
     
-    def __init__(self, name=None, folder_in=None, workflow = None, timeout=30, wait=1, ui_delay = 0.1, scroll=False):
-        self.workflow = workflow    # if step is attached to workflow
+    def __init__(self, name=None, folder_in=None, workflow_in = None, timeout=30, wait=1, ui_delay = 0.1, scroll=False):
+        self.workflow = workflow_in    # if step is attached to workflow
         self.timeout = timeout      # how many times to try before giving up on finding the image
         self.wait = wait            # how long to wait between tries to locate image after failure
         self.scroll = scroll        # mouse scroll when tring to find the image from desktop
@@ -415,7 +415,7 @@ class step():
         mouse = self.get_prop('mouse')
         if mouse.value == 'move':
             time.sleep(self.ui_delay)
-            gui.gui.moveTo(abs_location[0], abs_location[1])
+            gui.moveTo(abs_location[0], abs_location[1])
             print(" -> moved to: ["+str(abs_location[0])+","+str(abs_location[1])+"]")
             
         if mouse.value == 'click':
@@ -444,11 +444,11 @@ class step():
         text = self.get_prop('text')
         if not(text.value == ''):
             time.sleep(self.ui_delay)
+            ##exec("out1="+text.value,globals())
+            ##current_txt = out1
+            current_txt = eval(text.value)
             
-            exec("out1="+text.value,globals())
-            current_txt = out1
-            
-            pyperclip.copy(out1)
+            pyperclip.copy(current_txt)
             gui.hotkey(os_ctrl(),'v')
             print(" -> Pasted : "+current_txt)
         
@@ -481,6 +481,8 @@ class step():
         
         #close UI
         self.pre_dill()
+        temp_workflow = self.workflow
+        self.workflow = None
         
         metadata = PngInfo()
         payload = codecs.encode(dill.dumps(self),"base64").decode()
@@ -495,18 +497,23 @@ class step():
         print("load step: step = xx2.step(name=\""+file_name+"\")")
         self._img.save(file_name+'.png', pnginfo=metadata)
         
+        self.workflow = temp_workflow
+        
     def loadPNG(self, folder=None):
         # create file name
         if folder==None:
             file_name = self.name+'.png'
         else:
             file_name = folder+"/"+self.name+'.png'
+            
+        temp_workflow = self.workflow
         
         target_image = Image.open(file_name)
         payload = target_image.text["EMPpayload"]
         print(" -> Payload loaded, overwritng self")
         pickleobj = dill.loads(codecs.decode(payload.encode(), "base64"))
         self.__dict__ = pickleobj.__dict__
+        self.workflow = temp_workflow
         
         # reactivate step props
         self.post_dill()
@@ -533,8 +540,9 @@ class workflow:
           and once finished if empty deleted
      
     """
-    def __init__(self, name):
+    def __init__(self, name, doc_data = {}):
         self.name = name
+        self.doc_data = doc_data
         self.steps = []
         self._current_step = 0
     
@@ -551,12 +559,13 @@ class workflow:
             else:
                 try:
                     if not(self.steps[self._current_step].run()):
-                        raise Exception("Last step failed to locate image")
+                        raise Exception("[!] Last step failed to locate image")
                 except Exception as e:
                     print(e)
                     return
                     # insert break point if the script cannot continue without pervius sucess
                 self._current_step = self._current_step+1
+                print(" ### step over, current step: "+str(self._current_step)+" ### ")
     
     def show_steps(self):
         index = 0
@@ -572,7 +581,7 @@ class workflow:
         create and add new step into workflow end
         if you want define custom name use name=...
         """
-        self.steps.append(step(name=requested_name, folder_in=self.name, workflow=self))
+        self.steps.append(step(name=requested_name, folder_in=self.name, workflow_in=self))
             
     def last_step(self):
         """
