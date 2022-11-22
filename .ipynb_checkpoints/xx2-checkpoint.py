@@ -14,6 +14,8 @@ import shutil
 import os
 import copy
 import pyperclip
+from interactivecrop.interactivecrop import main as crop
+import numpy as np
 
 # Widget usage, need to make it somehow an addon, ie install once and use
 # ToDo: Create an object that will return the necessary init strings
@@ -261,7 +263,7 @@ class step():
             self.capture_region()
     
     def capture_region(self):
-        print("Capture images and (input) positions for step construction")
+        print("Capture the entire area of interest")
         print("["+os_ctrl()+"]  - mark image corner (top left to right bottom)")  
         print("[esc]  - stop capture")
         print("")
@@ -284,11 +286,11 @@ class step():
                     self._img = gui.screenshot(region=(area[0]*scale,area[1]*scale,area[2]*scale,area[3]*scale))
                     # set props
                     # ToDo: global init scripts
-                    self.add_prop("x",str(area[0]),init_script=i_text)
-                    self.add_prop("y",str(area[1]),init_script=i_text)
-                    self.add_prop("width",str(area[2]),init_script=i_text)
-                    self.add_prop("height",str(area[3]),init_script=i_text)
-                    self.add_prop("break if not found",True,init_script=i_checkbox)
+                    self.get_prop("x").value = str(area[0])
+                    self.get_prop("y").value = str(area[1])
+                    self.get_prop("width").value = str(area[2])
+                    self.get_prop("height").value = str(area[3])
+                    self.get_prop("break if not found").value = True
                     
                     display.display_png(self._img)
                     return False
@@ -301,12 +303,109 @@ class step():
             listener.join()
         # show prop editor for step
     
+    def overlay(self):
+        # hardcoded osx scale
+        scale = 2
+        
+        imgdata = copy.copy(self._img)
+        preview_draw = ImageDraw.Draw(imgdata)
+        #draw the area box
+        
+        top_left = [int(self.get_prop("left").value),int(self.get_prop("top").value)]
+        top_right = [int(self.get_prop("right").value),int(self.get_prop("top").value)]
+        bottom_left = [int(self.get_prop("left").value),int(self.get_prop("bottom").value)]
+        bottom_right = [int(self.get_prop("right").value),int(self.get_prop("bottom").value)]
+        
+        mouse_loc = [int(self.get_prop("mouse_left").value),int(self.get_prop("mouse_top").value)]
+        
+        #draw search box in green
+        preview_draw.line((top_left[0],top_left[1],top_right[0],top_right[1]),fill='green')
+        preview_draw.line((top_left[0],top_left[1],bottom_left[0],bottom_left[1]),fill='green')
+        preview_draw.line((top_right[0],top_right[1],bottom_right[0],bottom_right[1]),fill='green')
+        preview_draw.line((bottom_left[0],bottom_left[1],bottom_right[0],bottom_right[1]),fill='green')
+        
+        #draw the mouse circle in red
+        preview_draw.ellipse((scale*mouse_loc[0]-5, scale*mouse_loc[1]-5, scale*mouse_loc[0]+5, scale*mouse_loc[1]+5), fill=(255, 0, 0), outline=(255, 0, 0))
+        #print("-> _markers.append("+str(pos[0]-top_right_corner[0])+","+str(pos[1]-top_right_corner[1])+",'click',''))")
+        #display.display(imgdata)
+        return imgdata
+    
+    def pattern(self):
+        return self._img.crop((int(self.get_prop("left").value),int(self.get_prop("top").value),int(self.get_prop("right").value),int(self.get_prop("bottom").value)))
+    
+    def create_crop(self):
+        # hardcoded osx scale
+        scale = 2
+        def crop_callback(val1, val2):
+            left = self.get_prop("left")
+            top = self.get_prop("top")
+            
+            if val1=="screenshot":
+                right = self.get_prop("right")
+                bottom = self.get_prop("bottom")
+                
+                left.value = str(val2.size[0])
+                top.value = str(val2.size[1])
+                right.value = str(val2.size[2]+val2.size[0])
+                bottom.value = str(val2.size[3]+val2.size[1])
+            if val1=="mouse loc":
+                mouse_left = self.get_prop("mouse_left")
+                mouse_top = self.get_prop("mouse_top")
+                
+                mouse_left.value = str(int(val2.size[2]/scale))
+                mouse_top.value = str(int(val2.size[3]/scale))
+            
+            #print(str(val1)+"\n###############\n\n"+str(val2.size))
+        
+        self.crop = crop([np.array(self._img),np.array(self._img)],image_name_list = ["screenshot","mouse loc"],optimize=False, callback=crop_callback)
+    
+    def capture_v2(self):
+        
+        #clenaup properies
+        self._properties = []
+        #draw all properties
+        self.add_prop("x","0",init_script=i_text)
+        self.add_prop("y","0",init_script=i_text)
+        self.add_prop("width","0",init_script=i_text)
+        self.add_prop("height","0",init_script=i_text)
+        self.add_prop("break if not found",True,init_script=i_checkbox)
+        self.add_prop("left","0",init_script=i_text)
+        self.add_prop("top","0",init_script=i_text)
+        self.add_prop("right","0",init_script=i_text)
+        self.add_prop("bottom","0",init_script=i_text)       
+        self.add_prop("mouse_left","0",init_script=i_text)
+        self.add_prop("mouse_top","0",init_script=i_text)
+        self.add_prop("mouse",'click',init_script=i_dropdown)
+        self.add_prop("ctrla",False,init_script=i_checkbox)
+        self.add_prop("text","",init_script=i_text)
+        self.add_prop("enter",False,init_script=i_checkbox)
+        self.add_prop("allfound",False,init_script=i_checkbox)
+        self.capture_region()
+        self.create_crop()
+        
+
+        #self.edit()
+        #capture entire area of interest
+        #ask top righ
+        #ask left bottom
+        #capture
+        #ask if ok
+        #ask top right for unique pattern
+        #ask bottom left for unique pattern
+        #display
+        #ask if ok
+        #check if is actually unique
+        #ask for mouse location
+        #show
+        #ask if ok
+
+            
+        
+    
     def capture_action_marker(self):
         if self._img == None:
             print("[!] Capture image 1st before assiging a marker")
             self.capture_region()
-            self.capture_action_marker()
-            return
         
         loc = find_in_window(self._img)
         print("Image found @: "+str(loc[0])+", "+str(loc[1]))
@@ -323,14 +422,14 @@ class step():
         def on_release(key):
             if key == marker_key:
                 x, y = self._capture_pointer()
-                offset_x = x-loc[0]
-                offset_y = y-loc[1]
-                print(" -> captured action marker @: "+str(offset_x)+", "+str(offset_y))
+                mouse_left = x-loc[0]
+                mouse_top = y-loc[1]
+                print(" -> captured action marker @: "+str(mouse_left)+", "+str(mouse_top))
                 self._action_img = gui.screenshot(region=((x-25)*scale,(y-25)*scale,50*scale,50*scale))
                 # set props
                 # ToDo: global init scripts
-                self.add_prop("offset_x",str(offset_x),init_script=i_text)
-                self.add_prop("offset_y",str(offset_y),init_script=i_text)
+                self.add_prop("mouse_left",str(mouse_left),init_script=i_text)
+                self.add_prop("mouse_top",str(mouse_top),init_script=i_text)
                 self.add_prop("mouse",'click',init_script=i_dropdown)
                 self.add_prop("ctrla",False,init_script=i_checkbox)
                 self.add_prop("text","",init_script=i_text)
@@ -359,9 +458,15 @@ class step():
         for p in self._properties:
             p.draw()
 
-        print("[!] clear output before sving the step")
-        # ToDo: add button to the end to close the output
+        #draw a button
         
+        print("to capture the full area:")
+        print("    .steps[-1].capture_region()")
+        print("")
+        print("to capture the mouse location:")
+        print("    .steps[-1].capture_action_marker()")
+        print("")
+              
         #def close_cell(inp):
             #print("test")
             #clear_output()    
@@ -384,7 +489,7 @@ class step():
             
         # find image
         self.found_loc = None
-        self.found_loc = find_in_window(self._img, tries=self.timeout, wait=self.wait, scroll=self.scroll)
+        self.found_loc = find_in_window(self.pattern(), tries=self.timeout, wait=self.wait, scroll=self.scroll)
         
         # if no image is found, maybe move into execution if we want to have custom logic for not found as well
         if self.found_loc==None:
@@ -396,9 +501,9 @@ class step():
             return True
         
         # get actual screen space mouse co-ordinates
-        offset_x = self.get_prop("offset_x")
-        offset_y = self.get_prop("offset_y")
-        if offset_x==False or offset_y==False:
+        mouse_left = self.get_prop("mouse_left")
+        mouse_top = self.get_prop("mouse_top")
+        if mouse_left==False or mouse_top==False:
             print(" -> Offsets not found")
             for i in self._properties:
                 if i.name=='break if not found':
@@ -407,9 +512,9 @@ class step():
             return True
         
         display.display_png(self._action_img)
-        offset_x = int(offset_x.value)
-        offset_y = int(offset_y.value)
-        abs_location = [self.found_loc[0]+offset_x, self.found_loc[1]+offset_y]
+        mouse_left = int(mouse_left.value)-int(int(self.get_prop('left').value)*0.5)
+        mouse_top = int(mouse_top.value)-int(int(self.get_prop('top').value)*0.5)
+        abs_location = [self.found_loc[0]+mouse_left, self.found_loc[1]+mouse_top]
         
         # filter through found props
         mouse = self.get_prop('mouse')
@@ -483,6 +588,7 @@ class step():
         self.pre_dill()
         temp_workflow = self.workflow
         self.workflow = None
+        self.crop = None
         
         metadata = PngInfo()
         payload = codecs.encode(dill.dumps(self),"base64").decode()
@@ -495,7 +601,7 @@ class step():
             file_name = folder+"/"+self.name
         
         print("load step: step = xx2.step(name=\""+file_name+"\")")
-        self._img.save(file_name+'.png', pnginfo=metadata)
+        self.overlay().save(file_name+'.png', pnginfo=metadata)
         
         self.workflow = temp_workflow
         
@@ -517,7 +623,8 @@ class step():
         
         # reactivate step props
         self.post_dill()
-            
+        self.create_crop()
+        
     def pre_dill(self):
         for p in self._properties:
             try:
@@ -571,17 +678,18 @@ class workflow:
         index = 0
         for s in self.steps:
             print("Step["+str(index)+"]")
-            display.display_png(s._img)
-            print(" - mouse: ")
-            display.display_png(s._action_img)
+            display.display_png(s.overlay())
             index = index +1
     
-    def add_step(self, requested_name=None):
+    def add_step(self, requested_name=None, index=None):
         """
         create and add new step into workflow end
         if you want define custom name use name=...
         """
-        self.steps.append(step(name=requested_name, folder_in=self.name, workflow_in=self))
+        if index==None:
+            self.steps.append(step(name=requested_name, folder_in=self.name, workflow_in=self))
+        else:
+            self.steps.insert(index,step(name=requested_name, folder_in=self.name, workflow_in=self))
             
     def last_step(self):
         """
